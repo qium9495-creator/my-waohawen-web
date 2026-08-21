@@ -94,3 +94,9 @@ const COLLECTION_AND_STYLE_COPY={
  zh:{'style.traditional':'British Manor 英伦庄园','style.modern':'French Château 法式城堡','style.farmhouse':'Italian Renaissance 意式文艺复兴','style.rustic':'American Legacy 美式传世','collections.title':'三大匠心系列，让您的定制项目成为现实。','collection.fuyiDesc':'承袭欧洲与美国经典传统的实木家具。','collection.artDesc':'建筑感轮廓与传世级工艺。','collection.rhDesc':'低调奢华的实木家具，呈现真实自然的做旧质感。','collection.customDesc':'专属全屋设计与一站式采购服务。'}
 };
 Object.keys(I18N).forEach(lang=>Object.assign(I18N[lang],COLLECTION_AND_STYLE_COPY[lang]||COLLECTION_AND_STYLE_COPY.en));
+
+const PUFFPOP_COLLECTION_COPY={
+ en:{'top.text':'RH / ART / FUYI / Puffpop sofa Multi-collection Furniture · Homes / Clubs · Whole-house Interiors · Global Shipping','collection.puffpop':'Puffpop sofa','collection.puffpopDesc':'Soft modern sofa pieces with rounded comfort.','collections.title':'Four thoughtfully conceived collections. Your custom project, brought to life.','showcase.desc':'Move through products from Fuyi, Art, RH-Style and Puffpop sofa, then open any piece for details.','showcase.aria':'Drifting product wall across four furniture collections'},
+ zh:{'top.text':'RH / ART / FUYI / Puffpop sofa 多系列风格家具 · 家庭住宅 / 商业会所 · 全屋家装 · 支持全球海运','collection.puffpop':'Puffpop sofa','collection.puffpopDesc':'圆润舒适的现代沙发系列。','collections.title':'四大匠心系列，让您的定制项目成为现实。','showcase.desc':'汇集 Fuyi、Art、RH-Style 与 Puffpop sofa 四个系列，点击任一产品即可查看详情。','showcase.aria':'四个家具系列的动态产品展示墙'}
+};
+Object.keys(I18N).forEach(lang=>Object.assign(I18N[lang],PUFFPOP_COLLECTION_COPY[lang]||PUFFPOP_COLLECTION_COPY.en));

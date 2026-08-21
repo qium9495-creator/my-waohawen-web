@@ -1,0 +1,22 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>WAO HAVEN · 产品后台</title><link rel="stylesheet" href="admin.css?v=20260818-2"><style>[hidden]{display:none!important}</style></head>
+<body>
+  <main class="admin-shell">
+    <section class="login-view" id="loginView">
+      <div class="login-brand"><img src="assets/logo-icon.png" alt=""><span>WAO HAVEN</span></div>
+      <form id="loginForm" class="login-panel"><p>产品内容管理</p><h1>登录后台</h1><label>管理员邮箱<input name="email" type="email" autocomplete="username" required></label><label>密码<input name="password" type="password" autocomplete="current-password" required></label><button type="submit">安全登录</button><p class="form-message" id="loginMessage" role="status"></p></form>
+    </section>
+    <section class="workspace" id="workspace" hidden>
+      <header class="admin-header"><a href="index.html" class="admin-brand"><img src="assets/logo-icon.png" alt=""><strong>WAO HAVEN</strong><span>产品后台</span></a><div><a href="products.html" target="_blank">查看前台</a><button id="logoutBtn" class="quiet" type="button">退出</button></div></header>
+      <div class="admin-body">
+        <aside class="product-rail"><div class="rail-heading"><div><span id="productTotal">0 款产品</span><h1>产品资料库</h1></div><button id="newProductBtn" type="button">＋ 新建</button></div><div class="rail-tools"><input id="productSearch" type="search" placeholder="搜索名称或编号"><select id="seriesFilter"><option value="">全部系列</option><option>Fuyi Collection</option><option>Art Collection</option><option>RH-Style Collection</option><option>Puffpop sofa</option></select></div><div id="productList" class="product-list"></div></aside>
+        <section class="editor"><div class="editor-empty" id="editorEmpty"><span>WH</span><h2>选择产品开始编辑</h2><p>也可以新建产品并一次上传最多 5 张素材图。</p></div>
+          <form id="productForm" hidden><input type="hidden" name="id"><div class="editor-head"><div><p id="editorMode">新建产品</p><h2 id="editorTitle">未命名产品</h2></div><div class="editor-actions"><button class="danger quiet" id="deleteBtn" type="button">删除</button><button class="quiet" id="saveDraftBtn" type="button">保存草稿</button><button class="primary" id="publishBtn" type="button">发布产品</button></div></div>
+            <div class="form-grid"><label class="wide">产品名称<input name="name" required maxlength="120" placeholder="例如：胡桃木雕花茶几"></label><label>产品编号 SKU<input name="sku" required maxlength="50" placeholder="WAO-RH-CT-001"></label><label>系列<select name="collection" required><option value="">请选择</option><option>Fuyi Collection</option><option>Art Collection</option><option>RH-Style Collection</option><option>Puffpop sofa</option></select></label><label>空间<select name="room"><option>Living Room</option><option>Bedroom</option><option>Dining Room</option><option>Home Office</option><option>Entryway & Hallway</option><option>Other</option></select></label><label>品类<input name="category" placeholder="Coffee Tables"></label><label>风格<input name="style" placeholder="British Manor"></label><label>参考价（人民币）<input name="price" type="number" min="0" step="1" placeholder="12800"></label><label>排序<input name="sort_order" type="number" min="0" value="0"></label><label class="wide">产品简介<textarea name="description" rows="3" placeholder="用于详情页展示，可后续补充多语言版本"></textarea></label><label>主要材质<input name="material" placeholder="北美胡桃木 / 钢化玻璃"></label><label>参考尺寸<input name="dimensions" placeholder="可定制"></label><label>表面工艺<input name="finish" placeholder="手工做旧木蜡油"></label></div>
+            <section class="upload-panel"><div><h3>产品素材</h3><p>每款最多 5 张，第一张作为封面。建议 JPG / PNG / WebP，单张不超过 8MB。</p></div><label class="dropzone" id="dropzone"><input id="imageInput" type="file" accept="image/jpeg,image/png,image/webp" multiple><strong>拖入图片或点击选择</strong><span>可一次选择多张</span></label><div class="upload-progress" id="uploadProgress" hidden><span></span></div><div class="image-grid" id="imageGrid"></div></section><p class="form-message" id="formMessage" role="status"></p>
+          </form>
+        </section>
+      </div>
+    </section>
+  </main>
+  <script src="supabase-config.js?v=20260818-6"></script><script src="supabase-client.js?v=20260818-6"></script><script src="admin.js?v=20260818-6"></script>
+</body></html>
