@@ -247,7 +247,7 @@ body[data-page="products"] .secondary-site-header .language-menu,body[data-page=
 /* Homepage hero uses the source artwork's native 1920:900 canvas at every viewport. */
 .hero{height:auto;min-height:0;aspect-ratio:32/15}
 @media(max-width:560px){.hero-content{justify-content:flex-end;padding-bottom:18px}.hero-content .eyebrow,.hero-content>p:last-of-type,.hero-actions .btn.glass{display:none}.hero-content h1{max-width:82%;font-size:clamp(26px,8.5vw,34px);line-height:.94}.hero-actions{margin-top:12px}.hero-actions .btn{min-height:36px;padding:0 14px;font-size:9px}}
-.collection-card.soft{background:#fff8f1}
+.collection-card.soft{background:#fffdf9}
 @media(max-width:560px){.collection-grid,.catalog-layout .product-grid,.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.collection-card{min-height:210px;padding:18px}.collection-card h3{font-size:22px}.collection-card p{font-size:13px;line-height:1.55}.product-card{padding:9px}.product-card p{font-size:13px;line-height:1.35}.product-meta{display:grid;gap:8px}.product-card small{font-size:11px;min-height:52px}}
 @media(min-width:1101px){.collection-grid{grid-template-columns:repeat(5,minmax(0,1fr))}}
 
@@ -364,3 +364,6 @@ html[lang="zh"] body,html[lang="zh"] button,html[lang="zh"] input,html[lang="zh"
 html[lang="zh"] h1,html[lang="zh"] h2,html[lang="zh"] h3,html[lang="zh"] .secondary-title,html[lang="zh"] .footer-brand strong,html[lang="zh"] .metrics strong{font-family:var(--font-cjk-serif);font-weight:400;letter-spacing:0}
 html[lang="zh"] body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 .style-grid--four{grid-template-columns:repeat(4,minmax(0,1fr))}.style-grid--four strong{font-size:clamp(20px,1.8vw,26px);line-height:1.2}@media(max-width:900px){.style-grid--four{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.style-grid--four{grid-template-columns:1fr}}
+
+/* Product page breadcrumb emphasis. */
+.breadcrumbs,.breadcrumbs a,.breadcrumbs span{font-weight:700}

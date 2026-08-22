@@ -100,3 +100,23 @@ const PUFFPOP_COLLECTION_COPY={
  zh:{'top.text':'RH / ART / FUYI / Puffpop sofa 多系列风格家具 · 家庭住宅 / 商业会所 · 全屋家装 · 支持全球海运','collection.puffpop':'Puffpop sofa','collection.puffpopDesc':'圆润舒适的现代沙发系列。','collections.title':'四大匠心系列，让您的定制项目成为现实。','showcase.desc':'汇集 Fuyi、Art、RH-Style 与 Puffpop sofa 四个系列，点击任一产品即可查看详情。','showcase.aria':'四个家具系列的动态产品展示墙'}
 };
 Object.keys(I18N).forEach(lang=>Object.assign(I18N[lang],PUFFPOP_COLLECTION_COPY[lang]||PUFFPOP_COLLECTION_COPY.en));
+
+const HERO_POSTER_COPY={
+ en:{
+  'hero.poster1.eyebrow':'Puffpop Sofa Series','hero.poster1.title':'La Dolce Vita,<br>Reimagined','hero.poster1.desc':'Puffpop Sofa Series - Modern Italian Design','hero.poster1.cta':'Configure Your Sofa ->',
+  'hero.poster2.eyebrow':'FuYi Series','hero.poster2.title':'The Grand<br>Salon','hero.poster2.desc':'FuYi Series - Where Artistry Takes a Seat','hero.poster2.cta':'View the Salon Collection ->',
+  'hero.poster3.eyebrow':'British Manor','hero.poster3.title':'Born of Heritage,<br>Built for Today','hero.poster3.desc':'Four Centuries of European Design, Reimagined','hero.poster3.cta':'Discover the Collection ->',
+  'hero.poster4.eyebrow':'RH Series','hero.poster4.title':'Bold. Refined.<br>Unmistakably American.','hero.poster4.desc':'RH Series - Modern American Classicism','hero.poster4.cta':'Discover the RH Series ->',
+  'hero.poster5.eyebrow':'ART Series / RH Series','hero.poster5.title':'A Study in<br>Timeless Tradition','hero.poster5.desc':'British Manor Collection - Crafted for the Discerning Mind','hero.poster5.cta':'Explore British Manor ->',
+  'hero.poster6.eyebrow':'FuYi Series','hero.poster6.title':'Le Boudoir<br>Royale','hero.poster6.desc':'FuYi Series - French Chateau Opulence','hero.poster6.cta':'Shop French Chateau ->'
+ },
+ zh:{
+  'hero.poster1.eyebrow':'Puffpop 沙发系列','hero.poster1.title':'La Dolce Vita<br>甜蜜生活，全新演绎','hero.poster1.desc':'Puffpop 沙发系列 - 现代意式设计','hero.poster1.cta':'定制您的沙发 ->',
+  'hero.poster2.eyebrow':'福溢系列','hero.poster2.title':'至尊<br>会客厅','hero.poster2.desc':'福溢系列 - 匠心入座，艺境天成','hero.poster2.cta':'查看客厅系列 ->',
+  'hero.poster3.eyebrow':'英式庄园','hero.poster3.title':'传承经典<br>筑就当代','hero.poster3.desc':'四百年欧洲设计，重新演绎','hero.poster3.cta':'探索全系列 ->',
+  'hero.poster4.eyebrow':'RH 系列','hero.poster4.title':'大胆。精致。<br>纯正美式。','hero.poster4.desc':'RH 系列 - 现代美式古典','hero.poster4.cta':'探索 RH 系列 ->',
+  'hero.poster5.eyebrow':'ART 系列 / RH 系列','hero.poster5.title':'永恒传统的<br>书房典范','hero.poster5.desc':'英式庄园系列 - 为卓识之士而造','hero.poster5.cta':'探索英式庄园 ->',
+  'hero.poster6.eyebrow':'福溢系列','hero.poster6.title':'Le Boudoir Royale<br>皇室寝殿','hero.poster6.desc':'福溢系列 - 法式城堡的奢华','hero.poster6.cta':'选购法式城堡 ->'
+ }
+};
+Object.keys(I18N).forEach(lang=>Object.assign(I18N[lang],HERO_POSTER_COPY[lang]||HERO_POSTER_COPY.en));
