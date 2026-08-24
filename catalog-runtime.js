@@ -1,0 +1,24 @@
+(function(){
+ const localProducts=Array.isArray(window.WAO_LOCAL_PRODUCTS)?window.WAO_LOCAL_PRODUCTS.filter(p=>p.status!=='draft'):[];
+ const money=value=>value==null?'询价':`¥${Number(value).toLocaleString('zh-CN')}`;
+ const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const displayName=p=>(document.documentElement.lang==='zh'&&p.nameZh)||p.name||p.nameZh||p.sku;
+ function renderCatalog(){
+  const grid=document.getElementById('productGrid');if(!grid||!localProducts.length)return;
+  const rows=[...localProducts].sort((a,b)=>(a.sort_order||0)-(b.sort_order||0));
+  grid.innerHTML=rows.map(p=>{const name=displayName(p);return `<article class="product-card" data-title="${esc(`${p.name||''} ${p.nameZh||''}`)}" data-style="${esc(p.style)}" data-room="${esc(p.room)}" data-type="${esc(p.category)}" data-collection="${esc(p.collection)}" data-price="${p.price||0}"><a class="product-image" href="product-detail.html?id=${encodeURIComponent(p.id)}"><img src="${esc(p.images?.[0]||'assets/logo-icon.png')}" alt="${esc(name)}" loading="lazy" decoding="async"></a><a class="product-title-link" href="product-detail.html?id=${encodeURIComponent(p.id)}"><p>${esc(name)}</p></a><small>${esc([p.collection,p.style,p.room].filter(Boolean).join(' · '))}</small><div class="product-meta"><span class="product-price"><small>参考价</small><strong>${money(p.price)}</strong></span><a href="product-detail.html?id=${encodeURIComponent(p.id)}">查看详情</a></div></article>`}).join('');
+  bindFilters();
+ }
+ function bindFilters(){
+  const cards=[...document.querySelectorAll('#productGrid .product-card')],params=new URLSearchParams(location.search),controls={collection:document.getElementById('collectionFilter'),style:document.getElementById('styleFilter'),type:document.getElementById('typeFilter'),sort:document.getElementById('sortSelect'),search:document.getElementById('catalogSearch')};
+  function apply(){const room=params.get('room')||'',collection=controls.collection?.value||params.get('collection')||'',style=controls.style?.value||params.get('style')||'',type=controls.type?.value||params.get('type')||'',q=(controls.search?.value||params.get('q')||'').toLowerCase();let shown=0;cards.forEach(card=>{const ok=(!room||card.dataset.room.includes(room))&&(!collection||card.dataset.collection===collection)&&(!style||card.dataset.style===style)&&(!type||card.dataset.type===type)&&(!q||`${card.dataset.title} ${card.dataset.collection} ${card.dataset.style} ${card.dataset.type}`.toLowerCase().includes(q));card.classList.toggle('hidden',!ok);if(ok)shown++});const ordered=[...cards];if(controls.sort?.value==='az')ordered.sort((a,b)=>a.dataset.title.localeCompare(b.dataset.title));if(controls.sort?.value==='price-low')ordered.sort((a,b)=>Number(a.dataset.price)-Number(b.dataset.price));if(controls.sort?.value==='price-high')ordered.sort((a,b)=>Number(b.dataset.price)-Number(a.dataset.price));ordered.forEach(card=>card.parentNode.appendChild(card));document.getElementById('resultCount').textContent=`${shown} products`;document.getElementById('noResults').classList.toggle('show',shown===0)}
+  Object.values(controls).filter(Boolean).forEach(node=>node.addEventListener(node.tagName==='INPUT'?'input':'change',apply));apply();
+ }
+ function renderDetail(){
+  if(document.body.dataset.page!=='detail')return;const id=new URLSearchParams(location.search).get('id');if(!id||/^\d+$/.test(id))return;const p=localProducts.find(item=>item.id===id);if(!p)return;
+  const name=displayName(p);document.title=`${name} · WAO HAVEN`;document.getElementById('detailTitle').textContent=name;document.getElementById('detailCrumb').textContent=name;document.getElementById('detailMeta').textContent=[p.collection,p.style,p.room].filter(Boolean).join(' · ');if(p.description)document.querySelector('.detail-description').textContent=p.description;
+  const values={sku:p.sku,collection:p.collection,material:p.material,dimensions:p.dimensions,finish:p.finish};Object.entries(values).forEach(([key,value])=>{const node=document.querySelector(`[data-spec="${key}"]`);if(node&&value)node.textContent=value});
+  const thumbs=document.getElementById('detailThumbnails'),image=document.getElementById('detailImage');thumbs.innerHTML='';(p.images||[]).slice(0,5).forEach((src,i)=>{const button=document.createElement('button');button.type='button';button.className=`detail-thumbnail${i?'':' active'}`;button.setAttribute('aria-label',`查看第 ${i+1} 张产品图`);button.innerHTML=`<img src="${esc(src)}" alt="${esc(name)} ${i+1}">`;button.addEventListener('click',()=>{image.src=src;thumbs.querySelectorAll('button').forEach(x=>x.classList.remove('active'));button.classList.add('active')});thumbs.appendChild(button)});if(p.images?.[0]){image.src=p.images[0];image.alt=name}
+ }
+ renderCatalog();renderDetail();
+})();
