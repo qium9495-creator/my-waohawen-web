@@ -127,3 +127,14 @@ const LEGACY_BANNER_COPY={
 };
 Object.keys(I18N).forEach(lang=>Object.assign(I18N[lang],LEGACY_BANNER_COPY[lang]||LEGACY_BANNER_COPY.en));
 
+const DETAIL_SPEC_COPY={
+ en:{'detail.spec.sku':'SKU','detail.spec.collection':'Collection','detail.spec.dimensions':'Dimensions','detail.spec.finish':'Finish','detail.spec.customization':'Customization'},
+ zh:{'detail.spec.sku':'型号','detail.spec.collection':'系列','detail.spec.dimensions':'尺寸','detail.spec.finish':'工艺','detail.spec.customization':'定制'},
+ es:{'detail.spec.sku':'Modelo','detail.spec.collection':'Colección','detail.spec.dimensions':'Dimensiones','detail.spec.finish':'Acabado','detail.spec.customization':'Personalización'},
+ ru:{'detail.spec.sku':'Модель','detail.spec.collection':'Коллекция','detail.spec.dimensions':'Размеры','detail.spec.finish':'Отделка','detail.spec.customization':'Персонализация'},
+ de:{'detail.spec.sku':'Modell','detail.spec.collection':'Kollektion','detail.spec.dimensions':'Maße','detail.spec.finish':'Finish','detail.spec.customization':'Anpassung'},
+ fr:{'detail.spec.sku':'Modèle','detail.spec.collection':'Collection','detail.spec.dimensions':'Dimensions','detail.spec.finish':'Finition','detail.spec.customization':'Personnalisation'},
+ ar:{'detail.spec.sku':'الموديل','detail.spec.collection':'المجموعة','detail.spec.dimensions':'الأبعاد','detail.spec.finish':'التشطيب','detail.spec.customization':'التخصيص'}
+};
+Object.keys(I18N).forEach(lang=>Object.assign(I18N[lang],DETAIL_SPEC_COPY[lang]||DETAIL_SPEC_COPY.en));
+
