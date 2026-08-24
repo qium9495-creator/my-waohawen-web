@@ -59,7 +59,7 @@ html[lang="zh"] .main-nav{font-size:13px;letter-spacing:.04em}
 .product-detail-page{padding:48px 0 90px}
 .product-detail-layout{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(320px,.7fr);gap:56px;align-items:center}
 .detail-image-stage{min-height:600px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;padding:32px}
-.detail-image-stage img,.detail-image-stage video{width:100%;height:100%;max-height:680px;object-fit:contain}
+.detail-image-stage img,.detail-image-stage video{display:block;max-width:100%;max-height:680px;width:auto;height:auto;object-fit:contain}
 .detail-copy{display:grid;gap:22px}
 .detail-copy h1{font-size:clamp(44px,5vw,72px)}
 .detail-kicker{color:var(--gold);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
