@@ -392,3 +392,15 @@ html[lang="zh"] .craft-legacy-banner p{font-family:var(--font-cjk-serif);font-si
  .craft-legacy-banner__content{width:min(88vw,88vw);padding-bottom:44px}
  html[lang="zh"] .craft-legacy-banner h2{font-size:clamp(32px,9vw,46px)}
 }
+
+/* 2026-08-24 detail page product-language polish */
+[hidden]{display:none!important}
+.detail-copy h1{font-size:clamp(34px,4.1vw,58px);line-height:1.03;letter-spacing:0}
+html[lang="zh"] .detail-copy h1,
+html[lang="zh"] .detail-description,
+html[lang="zh"] #detailSpecifications dt,
+html[lang="zh"] #detailSpecifications dd{font-family:var(--font-cjk-serif);letter-spacing:0}
+html:not([lang="zh"]) .detail-description,
+html:not([lang="zh"]) #detailSpecifications dt,
+html:not([lang="zh"]) #detailSpecifications dd{font-family:var(--font-body);letter-spacing:0}
+.detail-image-stage video[hidden]{display:none!important}
