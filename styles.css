@@ -419,7 +419,7 @@ html:not([lang="zh"]) #detailSpecifications dd{font-family:var(--font-body);lett
 
 /* 2026-08-24 cross-page language and mobile layout polish */
 @media(max-width:560px){
- .craft-legacy-banner{aspect-ratio:1920/1334;min-height:0;align-items:end;background:#100d0a}
+  .craft-legacy-banner{aspect-ratio:1920/1334;min-height:0;align-items:end;background:#100d0a}
  .craft-legacy-banner::before{background-size:contain;background-position:center;background-repeat:no-repeat}
  .craft-legacy-banner::after{background:linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.08) 42%,rgba(0,0,0,.72) 100%)}
  .craft-legacy-banner__content{width:min(92vw,92vw);padding-bottom:22px}
@@ -429,5 +429,23 @@ html:not([lang="zh"]) #detailSpecifications dd{font-family:var(--font-body);lett
  .product-world{display:none}
  .footer-panel{grid-template-columns:repeat(2,minmax(0,1fr));gap:34px 28px}
  .footer-brand,.footer-bottom{grid-column:1/-1}
- .footer-panel a{font-size:15px;line-height:1.35}
+  .footer-panel a{font-size:15px;line-height:1.35}
+}
+
+/* 2026-08-25 mobile service steps and square showcase tiles */
+.drift-wall{height:584px}
+.drift-wall__tile{width:180px;height:180px;flex:0 0 180px}
+.drift-wall__inner img{padding:12px;object-fit:contain}
+@media(max-width:850px){
+ .drift-wall{height:504px}
+ .drift-wall__tile{width:156px;height:156px;flex-basis:156px}
+ .drift-wall__inner img{padding:10px}
+}
+@media(max-width:560px){
+ .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .steps div{padding:14px 12px}
+ .steps strong{font-size:14px;line-height:1.25}
+ .drift-wall{height:430px}
+ .drift-wall__tile{width:132px;height:132px;flex-basis:132px}
+ .drift-wall__inner img{padding:8px}
 }
