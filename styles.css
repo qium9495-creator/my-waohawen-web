@@ -363,7 +363,7 @@ html[lang="zh"]{--font-cjk-serif:"Songti SC","STSong","Noto Serif CJK SC","Sourc
 html[lang="zh"] body,html[lang="zh"] button,html[lang="zh"] input,html[lang="zh"] textarea,html[lang="zh"] select{font-family:var(--font-cjk-ui);font-weight:400;letter-spacing:normal}
 html[lang="zh"] h1,html[lang="zh"] h2,html[lang="zh"] h3,html[lang="zh"] .secondary-title,html[lang="zh"] .footer-brand strong,html[lang="zh"] .metrics strong{font-family:var(--font-cjk-serif);font-weight:400;letter-spacing:0}
 html[lang="zh"] body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-.style-grid--four{grid-template-columns:repeat(4,minmax(0,1fr))}.style-grid--four strong{font-size:clamp(20px,1.8vw,26px);line-height:1.2}@media(max-width:900px){.style-grid--four{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.style-grid--four{grid-template-columns:1fr}}
+.style-grid--four{grid-template-columns:repeat(4,minmax(0,1fr))}.style-grid--four strong{font-size:clamp(20px,1.8vw,26px);line-height:1.2}@media(max-width:900px){.style-grid--four{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.style-grid--four{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 /* Product page breadcrumb emphasis. */
 .breadcrumbs,.breadcrumbs a,.breadcrumbs span{font-weight:700}
@@ -404,6 +404,18 @@ html:not([lang="zh"]) .detail-description,
 html:not([lang="zh"]) #detailSpecifications dt,
 html:not([lang="zh"]) #detailSpecifications dd{font-family:var(--font-body);letter-spacing:0}
 .detail-image-stage video[hidden]{display:none!important}
+
+/* 2026-08-25 product card dimension display */
+.product-dimensions{margin-top:12px;padding-top:12px;border-top:1px solid rgba(8,26,56,.1);display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:12px;line-height:1.45}
+.product-dimensions span{color:var(--muted)}
+.product-dimensions strong{font-family:var(--font-editorial);font-weight:500;color:var(--navy);text-align:right}
+@media(max-width:560px){
+ .style-grid--four{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .style-grid--four a{min-height:150px;padding:18px 14px}
+ .style-grid--four strong{font-size:clamp(18px,5.2vw,22px)}
+ .product-dimensions{display:grid;gap:4px;font-size:11px}
+ .product-dimensions strong{text-align:left}
+}
 
 /* 2026-08-24 cross-page language and mobile layout polish */
 @media(max-width:560px){
