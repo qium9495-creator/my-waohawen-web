@@ -492,3 +492,33 @@ html:not([lang="zh"]) #detailSpecifications dd{font-family:var(--font-body);lett
  .product-meta>a::before{content:"";position:absolute;left:50%;top:50%;width:15px;height:2px;background:#fff;border-radius:999px;transform:translate(-58%,-50%)}
  .product-meta>a::after{content:"";position:absolute;left:50%;top:50%;width:8px;height:8px;border-top:2px solid #fff;border-right:2px solid #fff;transform:translate(-10%,-50%) rotate(45deg)}
 }
+
+/* 2026-08-25 mobile catalog search full width */
+@media(max-width:560px){
+ .catalog-filter-bar>.catalog-search{
+  grid-column:1/-1!important;
+  width:100%;
+  padding:14px 10px 0;
+  border-right:0;
+ }
+ .catalog-search-control{
+  width:100%;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 56px;
+ }
+ .catalog-search-control input{
+  min-width:0;
+  width:100%;
+  height:48px;
+  font-size:16px;
+ }
+ .catalog-search-control button{
+  width:56px;
+  min-width:56px;
+  height:48px;
+ }
+ .catalog-filter-bar>.catalog-clear{
+  grid-column:1/-1!important;
+  width:100%;
+ }
+}
