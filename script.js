@@ -90,15 +90,17 @@ if(page==='products'){
  densityButtons.forEach(button=>button.addEventListener('click',()=>applyDensity(button.dataset.gridDensity)));applyDensity(localStorage.getItem('waohaven_grid_density')==='compact'?'compact':'comfortable');
  const p=new URLSearchParams(location.search),initialRoom=p.get('room')||'';
  const controls={collection:document.getElementById('collectionFilter'),style:document.getElementById('styleFilter'),type:document.getElementById('typeFilter'),sort:document.getElementById('sortSelect'),search:document.getElementById('catalogSearch')};
+ const syncFilterControlState=()=>{[controls.collection,controls.style,controls.type].forEach(control=>control?.classList.toggle('has-selection',Boolean(control.value)));controls.sort?.classList.toggle('has-selection',Boolean(controls.sort.value&&controls.sort.value!=='featured'))};
  controls.collection.value=p.get('collection')||'';controls.style.value=p.get('style')||'';controls.type.value=p.get('type')||'';controls.search.value=p.get('q')||'';
  const priceOf=card=>Number((card.querySelector('.product-price strong')?.textContent||'').replace(/[^0-9]/g,''))||0;
  function applyCatalogFilters(){
   const collection=controls.collection.value,style=controls.style.value,type=controls.type.value,q=controls.search.value.trim().toLowerCase();const styleAliases={'British Manor':'Traditional American','French Château':'Traditional American','Italian Renaissance':'Modern American','American Legacy':'Rustic'};const productStyle=styleAliases[style]||style;let visible=0;
   products.forEach(card=>{let ok=true;if(initialRoom)ok&&=(card.dataset.room||'').includes(initialRoom);if(collection)ok&&=card.dataset.collection===collection;if(style)ok&&=card.dataset.style===productStyle;if(type)ok&&=card.dataset.type===type;if(q){const hay=[card.dataset.title,card.dataset.room,card.dataset.style,card.dataset.type,card.dataset.collection].join(' ').toLowerCase();ok&&=hay.includes(q)}card.classList.toggle('hidden',!ok);if(ok)visible++});
   const grid=document.getElementById('productGrid'),ordered=[...products];if(controls.sort.value==='az')ordered.sort((a,b)=>a.dataset.title.localeCompare(b.dataset.title));if(controls.sort.value==='price-low')ordered.sort((a,b)=>priceOf(a)-priceOf(b));if(controls.sort.value==='price-high')ordered.sort((a,b)=>priceOf(b)-priceOf(a));ordered.forEach(card=>grid.appendChild(card));
+  syncFilterControlState();
   refreshProductCount();document.getElementById('noResults').classList.toggle('show',visible===0);
  }
- [controls.collection,controls.style,controls.type,controls.sort].forEach(control=>control.addEventListener('change',applyCatalogFilters));document.getElementById('catalogFilters')?.addEventListener('submit',event=>{event.preventDefault();applyCatalogFilters()});controls.search.addEventListener('input',applyCatalogFilters);applyCatalogFilters();
+ [controls.collection,controls.style,controls.type,controls.sort].forEach(control=>control.addEventListener('change',applyCatalogFilters));document.getElementById('catalogFilters')?.addEventListener('submit',event=>{event.preventDefault();applyCatalogFilters()});controls.search.addEventListener('input',applyCatalogFilters);syncFilterControlState();applyCatalogFilters();
 }
 if(page==='detail'){
  const detailProducts={
