@@ -49,7 +49,14 @@ if(page==='home'){
    {image:'assets/coffee-walnut-angle.jpg',title:'prod.6',series:'collection.rh',href:'product-detail.html?id=6'}
   ];
   const seriesKeys={'Fuyi Collection':'collection.fuyi','Art Collection':'collection.art','RH-Style Collection':'collection.rh','Puffpop sofa':'collection.puffpop'};
-  const localWallItems=(Array.isArray(window.WAO_LOCAL_PRODUCTS)?window.WAO_LOCAL_PRODUCTS:[]).filter(item=>item.status!=='draft'&&item.images?.[0]).map(item=>({image:item.images[0],titleText:(document.documentElement.lang==='zh'&&item.nameZh)||item.name||item.nameZh||item.sku,series:seriesKeys[item.collection],href:`product-detail.html?id=${encodeURIComponent(item.id)}`})).filter(item=>item.series);
+  const preferredProductImage=images=>{
+   const list=Array.isArray(images)?images.filter(Boolean):[];
+   if(list.length<=1)return list[0]||'';
+   const whiteName=list.find(src=>/(white|bait|baidi|main|cutout|transparent|\b0\b|白底|主图)/i.test(src));
+   if(whiteName)return whiteName;
+   return list.find(src=>/\.png(?:[?#].*)?$/i.test(src))||list[0]||'';
+  };
+  const localWallItems=(Array.isArray(window.WAO_LOCAL_PRODUCTS)?window.WAO_LOCAL_PRODUCTS:[]).filter(item=>item.status!=='draft'&&item.images?.[0]).map(item=>({image:preferredProductImage(item.images),titleText:(document.documentElement.lang==='zh'&&item.nameZh)||item.name||item.nameZh||item.sku,series:seriesKeys[item.collection],href:`product-detail.html?id=${encodeURIComponent(item.id)}`})).filter(item=>item.series&&item.image);
   const wallItems=localWallItems.length?localWallItems:fallbackWallItems;
   const plane=document.createElement('div');plane.className='drift-wall__plane';
   let rows=[];
