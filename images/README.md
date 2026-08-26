@@ -1,6 +1,6 @@
 # WAO HAVEN 本地产品图片
 
-按系列放入：`images/fuyi/`、`images/art/`、`images/rh-style/`。
+按系列放入：`images/fuyi/`、`images/art/`、`images/rh-style/`、`images/Puffpop sofa/`。
 
 文件名只使用小写英文字母、数字和短横线，不要中文、空格或括号，例如：
 
