@@ -1,0 +1,4 @@
+id,sku,name,nameZh,collection,room,category,style,price,description,material,dimensions,finish,image1,image2,image3,image4,image5,status,sort_order
+fuyi-sofa-001,WAO-FY-SF-001,Classic Linen Sofa,经典亚麻三人沙发,Fuyi Collection,Living Room,Sofa & Sectionals,American Legacy,12800,在这里填写产品介绍,实木框架 / 亚麻面料,220 x 95 x 82 cm,深胡桃木色,images/fuyi/sofa-fy-001-01.jpg,images/fuyi/sofa-fy-001-02.jpg,images/fuyi/sofa-fy-001-03.jpg,,,published,100
+art-table-001,WAO-ART-CT-001,Ivory Center Table,象牙白中心桌,Art Collection,Living Room,Coffee Tables,French Château,9200,在这里填写产品介绍,实木 / 玻璃,可按项目定制,象牙白饰面,images/art/table-art-001-01.jpg,images/art/table-art-001-02.jpg,,,,published,200
+rh-bed-001,WAO-RH-BD-001,Carved Walnut Bed,胡桃木雕花床,RH-Style Collection,Bedroom,Beds,British Manor,16800,在这里填写产品介绍,胡桃木 / 软包,可按项目定制,胡桃木色,images/rh-style/bed-rh-001-01.jpg,images/rh-style/bed-rh-001-02.jpg,images/rh-style/bed-rh-001-03.jpg,images/rh-style/bed-rh-001-04.jpg,,draft,300
