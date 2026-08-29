@@ -14,7 +14,7 @@
  };
  const collectionKeys={'Fuyi Collection':'collection.fuyi','Art Collection':'collection.art','RH-Style Collection':'collection.rh','Puffpop sofa':'collection.puffpop'};
  const roomKeys={'Living Room':'room.living','Dining Room':'room.dining','Bedroom':'room.bedroom','Home Office':'room.office','Entryway & Hallway':'room.entryway','玄关入户':'room.entryway','Other':'room.other'};
- const styleKeys={'British Manor 英伦庄园':'style.traditional','British Manor':'style.traditional','French Château':'style.modern','Italian Renaissance':'style.farmhouse','American Legacy':'style.rustic'};
+ const styleKeys={'British Manor 英伦庄园':'style.traditional','British Manor':'style.traditional','French Chateau 法式城堡':'style.modern','French Chateau':'style.modern','French Château':'style.modern','Italian Renaissance':'style.farmhouse','American Legacy':'style.rustic'};
  const t=(key,currentLang=lang())=>(typeof I18N==='object'&&I18N[currentLang]?.[key])||(typeof I18N==='object'&&I18N.en?.[key])||key;
  const localName=(value,map,currentLang=lang())=>map[value]?t(map[value],currentLang):value;
  const fallbackName=p=>productNameMap.en[p.nameZh]||p.category||p.name||p.sku;

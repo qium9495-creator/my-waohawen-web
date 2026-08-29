@@ -522,3 +522,14 @@ html:not([lang="zh"]) #detailSpecifications dd{font-family:var(--font-body);lett
   width:100%;
  }
 }
+
+
+/* Navigation taxonomy update - 2026-08-29 */
+@media(min-width:851px){
+ .main-nav{width:min(1480px,calc(100% - 28px));gap:2px;font-size:9.5px;justify-content:center}
+ .main-nav>a,.nav-item>a{padding-left:7px;padding-right:7px;white-space:nowrap}
+ .main-nav .nav-align-end .dropdown{left:auto;right:0;transform:translate(0,8px)}
+ .main-nav .nav-align-end:hover .dropdown,.main-nav .nav-align-end:focus-within .dropdown{transform:translate(0,0)}
+}
+html[lang="zh"] .main-nav{font-size:12px;letter-spacing:.03em}
+.dropdown a{line-height:1.25}
