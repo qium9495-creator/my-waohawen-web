@@ -8,7 +8,7 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
   <title>Product Details · WAO HAVEN</title>
-  <link rel="stylesheet" href="styles.css?v=20260829-1" />
+  <link rel="stylesheet" href="styles.css?v=20260829-2" />
 </head>
 <body data-page="detail">
   <div class="top-strip"><span data-i18n="top.text">RH / ART / FUYI Multi-collection Furniture · Homes / Clubs · Whole-house Interiors · Global Shipping</span><a href="#detailInquiry" data-open-inquiry data-i18n="top.cta">Global projects · Response within 24 hours</a></div>
@@ -42,26 +42,37 @@
         <div class="detail-image-stage"><img id="detailImage" src="assets/coffee-walnut-front.jpg" alt="" /><video id="detailVideo" controls hidden playsinline></video></div>
       </div>
       <div class="detail-copy">
-        <p class="detail-kicker" data-i18n="detail.showcase">Product showcase · Inquiry only</p>
+        <p class="detail-kicker" id="detailKicker" data-i18n="detail.showcase">Product showcase · Inquiry only</p>
         <h1 id="detailTitle">Carved Walnut Coffee Table</h1>
         <p id="detailMeta" class="detail-meta">RH-Style Collection · Traditional American · Living Room</p>
-        <p class="detail-description" data-i18n="detail.description">This page focuses on the product itself. For dimensions, materials, finishes, customization and shipping details, send us an inquiry.</p>
-        <dl class="detail-facts">
-          <div><dt data-i18n="detail.service">Service</dt><dd data-i18n="detail.serviceValue">Product consultation and customization</dd></div>
-          <div><dt data-i18n="detail.shipping">Shipping</dt><dd data-i18n="detail.shippingValue">International ocean shipping support</dd></div>
+        <dl class="detail-purchase-facts">
+          <div><dt data-i18n="detail.spec.sku">SKU</dt><dd data-detail-value="sku">WAO-CT-001</dd></div>
+          <div><dt data-i18n="price.reference">Reference Price</dt><dd data-detail-value="price">¥12,800</dd></div>
+        </dl>
+        <div class="detail-accordion-block">
+          <h2 data-i18n="detail.functionTitle">Function Notes</h2>
+          <p class="detail-description" data-i18n="detail.description">This page focuses on the product itself. For dimensions, materials, finishes, customization and shipping details, send us an inquiry.</p>
+        </div>
+        <section class="detail-same-products" aria-labelledby="sameProductsTitle">
+          <div class="detail-subhead"><h2 id="sameProductsTitle" data-i18n="detail.sameProducts">Same Products</h2><a id="sameProductsLink" href="products.html" data-i18n="common.viewAll">View All</a></div>
+          <div class="detail-same-strip" id="detailSameProducts"></div>
+        </section>
+        <dl class="detail-facts" id="detailSpecifications">
+          <div><dt data-i18n="detail.spec.dimensions">Dimensions</dt><dd data-spec="dimensions">Custom dimensions available</dd></div>
+          <div><dt data-i18n="detail.spec.collection">Collection</dt><dd data-spec="collection">RH-Style Collection</dd></div>
+          <div><dt data-i18n="detail.spec.finish">Finish</dt><dd data-spec="finish">Hand-carved / custom finish</dd></div>
+          <div><dt data-i18n="detail.spec.customization">Customization</dt><dd data-spec="custom">Size, wood color, fabric and packaging can be customized</dd></div>
         </dl>
         <div class="detail-actions"><button class="btn gold" type="button" data-open-inquiry data-i18n="detail.inquire">Send an Inquiry</button><a class="btn detail-back" href="products.html" data-i18n="detail.back">Back to Products</a></div>
       </div>
     </section>
-    <section class="product-specifications" aria-labelledby="specTitle">
-      <div><p class="detail-kicker">Product Information</p><h2 id="specTitle">Product Specifications</h2><p>Key product details are maintained per item for inquiry, customization and project confirmation.</p></div>
-      <dl id="detailSpecifications">
-        <div><dt data-i18n="detail.spec.sku">SKU</dt><dd data-spec="sku">WAO-CT-001</dd></div>
-        <div><dt data-i18n="detail.spec.collection">Collection</dt><dd data-spec="collection">RH-Style Collection</dd></div>
-        <div><dt data-i18n="detail.spec.dimensions">Dimensions</dt><dd data-spec="dimensions">Custom dimensions available</dd></div>
-        <div><dt data-i18n="detail.spec.finish">Finish</dt><dd data-spec="finish">Hand-carved / custom finish</dd></div>
-        <div><dt data-i18n="detail.spec.customization">Customization</dt><dd data-spec="custom">Size, wood color, fabric and packaging can be customized</dd></div>
-      </dl>
+    <section class="detail-recommendations" aria-labelledby="recommendationsTitle">
+      <div class="detail-section-head"><h2 id="recommendationsTitle" data-i18n="detail.recommendedSets">Recommended Pairings</h2><p data-i18n="detail.recommendedDesc">Selected pieces that work with this product by room, style and collection.</p></div>
+      <div class="detail-recommendation-list" id="detailRecommendations"></div>
+    </section>
+    <section class="detail-bottom-inquiry" aria-labelledby="bottomInquiryTitle">
+      <div><h2 id="bottomInquiryTitle" data-i18n="detail.bottomInquiryTitle">Need this piece for a project?</h2><p data-i18n="detail.bottomInquiryDesc">Send the product model and project requirements. We will confirm details, customization and shipping.</p></div>
+      <button class="btn gold" type="button" data-open-inquiry data-i18n="detail.inquire">Send an Inquiry</button>
     </section>
   </main>
 
@@ -80,10 +91,10 @@
   </dialog>
 
   <div class="footer-wrap"><footer class="footer-panel container"><div class="footer-brand"><strong>WAO HAVEN</strong><p data-i18n="footer.desc">RH-inspired luxury furniture. Direct from China to homes worldwide.</p></div><div><h4 data-i18n="footer.nav">Navigation</h4><a href="index.html#about" data-i18n="nav.about">About Us</a><a href="products.html" data-i18n="nav.all">All Furniture</a></div><div><h4 data-i18n="footer.service">Services</h4><a href="index.html#custom" data-i18n="collection.custom">Whole-house Custom Design</a><a href="#detailInquiry" data-open-inquiry data-i18n="nav.inquiry">Inquiry</a></div><div><h4 data-i18n="footer.contact">Contact</h4><a href="#detailInquiry" data-open-inquiry>WhatsApp</a><a href="#detailInquiry" data-open-inquiry>Email</a><a href="#detailInquiry" data-open-inquiry>WeChat</a></div><div class="footer-bottom"><span>© 2026 WAO HAVEN.</span><span>waohaven.com</span></div></footer></div>
-  <script src="translations.js?v=20260829-1"></script>
+  <script src="translations.js?v=20260829-2"></script>
   <script src="script.js?v=20260829-1"></script>
   <script src="local-products.js?v=20260825-10"></script>
-  <script src="catalog-runtime.js?v=20260829-1"></script>
+  <script src="catalog-runtime.js?v=20260829-2"></script>
 </body>
 </html>
 

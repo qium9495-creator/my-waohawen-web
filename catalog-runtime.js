@@ -54,6 +54,31 @@
   if(key==='finish')return t('product.finish.generic',currentLang);
   return p[key]||'';
  };
+ const productHref=p=>`product-detail.html?id=${encodeURIComponent(p.id)}`;
+ const productMeta=(p,currentLang=lang())=>[localName(p.collection,collectionKeys,currentLang),cleanStyle(p.style,currentLang),localName(normalizedRoom(p.room),roomKeys,currentLang)].filter(Boolean).join(' · ');
+ const sortByScore=(current,items,scoreFn)=>items.map(item=>({item,score:scoreFn(item)})).filter(row=>row.score>0).sort((a,b)=>b.score-a.score||(a.item.sort_order||0)-(b.item.sort_order||0)).map(row=>row.item);
+ const sameProductsFor=current=>{
+  const exact=localProducts.filter(p=>p.id!==current.id&&p.category===current.category&&p.collection===current.collection);
+  const fallback=localProducts.filter(p=>p.id!==current.id&&p.category===current.category&&!exact.includes(p));
+  return [...exact,...fallback].slice(0,6);
+ };
+ const recommendedFor=current=>{
+  const room=normalizedRoom(current.room),style=normalizedStyle(current.style);
+  const scored=sortByScore(current,localProducts.filter(p=>p.id!==current.id),p=>{
+   let score=0;
+   if(normalizedRoom(p.room)===room)score+=5;
+   if(normalizedStyle(p.style)===style)score+=4;
+   if(p.collection===current.collection)score+=2;
+   if(p.category!==current.category)score+=1;
+   return score;
+  });
+  const roomFirst=scored.filter(p=>p.category!==current.category);
+  return [...roomFirst,...scored.filter(p=>!roomFirst.includes(p))].slice(0,10);
+ };
+ const compactProductCard=(p,currentLang=lang(),className='')=>{
+  const name=displayName(p,currentLang),imageSrc=preferredProductImage(p.images),dimensions=formatDimensions(p.dimensions,currentLang),intro=localized(p,'description',currentLang)||t('product.description.generic',currentLang);
+  return `<a class="${className}" href="${productHref(p)}"><span class="detail-rec-image"><img src="${esc(imageSrc)}" alt="${esc(name)}" loading="lazy" decoding="async"></span><span class="detail-rec-copy"><strong>${esc(name)}</strong><small>${esc(p.sku||p.name||'')}</small><em>${esc(money(p.price,p))}</em><p>${esc(intro)}</p>${dimensions?`<span class="detail-rec-dim">${esc(t('product.dimensions',currentLang))}: ${esc(dimensions)}</span>`:''}</span></a>`;
+ };
  function renderCatalog(){
   const grid=document.getElementById('productGrid');if(!grid||!localProducts.length)return;
   const currentLang=lang();
@@ -68,9 +93,11 @@
  }
  function renderDetail(){
   if(document.body.dataset.page!=='detail')return;const id=new URLSearchParams(location.search).get('id');if(!id||/^\d+$/.test(id))return;const p=localProducts.find(item=>item.id===id);if(!p)return;
-  const currentLang=lang(),name=displayName(p,currentLang),style=cleanStyle(p.style,currentLang),collection=localName(p.collection,collectionKeys,currentLang),room=localName(normalizedRoom(p.room),roomKeys,currentLang);document.title=`${name} · WAO HAVEN`;['detailTitle','detailCrumb','detailMeta'].forEach(id=>document.getElementById(id)?.removeAttribute('data-i18n'));const desc=document.querySelector('.detail-description');desc?.removeAttribute('data-i18n');document.getElementById('detailTitle').textContent=name;document.getElementById('detailCrumb').textContent=name;document.getElementById('detailMeta').textContent=[collection,style,room].filter(Boolean).join(' · ');if(desc)desc.textContent=localized(p,'description',currentLang);
-  const values={sku:p.sku,collection,dimensions:formatDimensions(p.dimensions,currentLang),finish:localized(p,'finish',currentLang),custom:t('product.customValue',currentLang)};Object.entries(values).forEach(([key,value])=>{const node=document.querySelector(`[data-spec="${key}"]`);if(node&&value)node.textContent=value});
-  const thumbs=document.getElementById('detailThumbnails'),image=document.getElementById('detailImage'),video=document.getElementById('detailVideo');if(video){video.pause();video.hidden=true;video.removeAttribute('src')}if(image){image.hidden=false;image.removeAttribute('hidden')}thumbs.innerHTML='';const preferredSrc=preferredProductImage(p.images),gallery=[preferredSrc,...(p.images||[]).filter(src=>src!==preferredSrc)].filter(Boolean).slice(0,5);gallery.forEach((src,i)=>{const button=document.createElement('button');button.type='button';button.className=`detail-thumbnail${i?'':' active'}`;button.setAttribute('aria-label',t('product.imageAria',currentLang).replace('{index}',i+1));button.innerHTML=`<img src="${esc(src)}" alt="${esc(name)} ${i+1}">`;button.addEventListener('click',()=>{if(video){video.pause();video.hidden=true}image.hidden=false;image.src=src;thumbs.querySelectorAll('button').forEach(x=>x.classList.remove('active'));button.classList.add('active')});thumbs.appendChild(button)});if(preferredSrc){image.src=preferredSrc;image.alt=name}
+  const currentLang=lang(),name=displayName(p,currentLang),style=cleanStyle(p.style,currentLang),collection=localName(p.collection,collectionKeys,currentLang),room=localName(normalizedRoom(p.room),roomKeys,currentLang);document.title=`${name} · WAO HAVEN`;['detailTitle','detailCrumb','detailMeta','detailKicker'].forEach(id=>document.getElementById(id)?.removeAttribute('data-i18n'));const desc=document.querySelector('.detail-description');desc?.removeAttribute('data-i18n');document.getElementById('detailTitle').textContent=name;document.getElementById('detailCrumb').textContent=name;document.getElementById('detailMeta').textContent=[collection,style,room].filter(Boolean).join(' · ');const kicker=document.getElementById('detailKicker');if(kicker)kicker.textContent=collection;if(desc)desc.textContent=localized(p,'description',currentLang)||t('product.description.generic',currentLang);
+  const values={sku:p.sku,price:money(p.price,p),collection,dimensions:formatDimensions(p.dimensions,currentLang),finish:localized(p,'finish',currentLang),custom:t('product.customValue',currentLang)};Object.entries(values).forEach(([key,value])=>{const spec=document.querySelector(`[data-spec="${key}"]`),detail=document.querySelector(`[data-detail-value="${key}"]`);if(spec&&value)spec.textContent=value;if(detail&&value)detail.textContent=value});
+  const same=sameProductsFor(p),sameWrap=document.getElementById('detailSameProducts'),sameSection=sameWrap?.closest('.detail-same-products'),sameLink=document.getElementById('sameProductsLink');if(sameWrap){sameWrap.innerHTML=same.map(item=>`<a class="detail-same-card" href="${productHref(item)}"><img src="${esc(preferredProductImage(item.images))}" alt="${esc(displayName(item,currentLang))}" loading="lazy" decoding="async"><span>${esc(displayName(item,currentLang))}</span></a>`).join('');sameSection.hidden=same.length===0}if(sameLink){sameLink.href=`products.html?type=${encodeURIComponent(p.category||'')}&collection=${encodeURIComponent(p.collection||'')}`}
+  const recs=recommendedFor(p),recWrap=document.getElementById('detailRecommendations'),recSection=recWrap?.closest('.detail-recommendations');if(recWrap){recWrap.innerHTML=recs.slice(0,Math.max(4,Math.min(10,recs.length))).map(item=>compactProductCard(item,currentLang,'detail-recommendation-item')).join('');recSection.hidden=recs.length===0}
+  const thumbs=document.getElementById('detailThumbnails'),image=document.getElementById('detailImage'),video=document.getElementById('detailVideo');if(video){video.pause();video.hidden=true;video.removeAttribute('src')}if(image){image.hidden=false;image.removeAttribute('hidden')}if(thumbs)thumbs.innerHTML='';const preferredSrc=preferredProductImage(p.images),gallery=[preferredSrc,...(p.images||[]).filter(src=>src!==preferredSrc)].filter(Boolean).slice(0,5);gallery.forEach((src,i)=>{const button=document.createElement('button');button.type='button';button.className=`detail-thumbnail${i?'':' active'}`;button.setAttribute('aria-label',t('product.imageAria',currentLang).replace('{index}',i+1));button.innerHTML=`<img src="${esc(src)}" alt="${esc(name)} ${i+1}">`;button.addEventListener('click',()=>{if(video){video.pause();video.hidden=true}image.hidden=false;image.src=src;thumbs?.querySelectorAll('button').forEach(x=>x.classList.remove('active'));button.classList.add('active')});thumbs?.appendChild(button)});if(preferredSrc&&image){image.src=preferredSrc;image.alt=name}
  }
  window.WAO_REFRESH_LOCAL_PRODUCTS=()=>{renderCatalog();renderDetail()};
  window.WAO_REFRESH_LOCAL_PRODUCTS();

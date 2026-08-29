@@ -162,6 +162,17 @@ const DETAIL_SPEC_COPY={
 };
 Object.keys(I18N).forEach(lang=>Object.assign(I18N[lang],DETAIL_SPEC_COPY[lang]||DETAIL_SPEC_COPY.en));
 
+const DETAIL_RECOMMENDATION_COPY={
+ en:{'detail.functionTitle':'Function Notes','detail.sameProducts':'Same Products','detail.recommendedSets':'Recommended Pairings','detail.recommendedDesc':'Selected pieces that work with this product by room, style and collection.','detail.bottomInquiryTitle':'Need this piece for a project?','detail.bottomInquiryDesc':'Send the product model and project requirements. We will confirm details, customization and shipping.'},
+ zh:{'detail.functionTitle':'功能说明','detail.sameProducts':'同款产品','detail.recommendedSets':'推荐搭配','detail.recommendedDesc':'根据当前产品的空间、风格与系列，为你推荐可搭配的家具。','detail.bottomInquiryTitle':'需要这件产品用于项目？','detail.bottomInquiryDesc':'发送产品型号和项目需求，我们会进一步确认尺寸、定制与运输方案。'},
+ es:{'detail.functionTitle':'Notas funcionales','detail.sameProducts':'Productos similares','detail.recommendedSets':'Combinaciones recomendadas','detail.recommendedDesc':'Piezas seleccionadas que combinan por espacio, estilo y colección.','detail.bottomInquiryTitle':'¿Necesita esta pieza para un proyecto?','detail.bottomInquiryDesc':'Envíe el modelo y los requisitos del proyecto. Confirmaremos detalles, personalización y envío.'},
+ ru:{'detail.functionTitle':'Описание функций','detail.sameProducts':'Похожие товары','detail.recommendedSets':'Рекомендуемые сочетания','detail.recommendedDesc':'Подобранные предметы по комнате, стилю и коллекции.','detail.bottomInquiryTitle':'Нужен этот товар для проекта?','detail.bottomInquiryDesc':'Отправьте модель и требования проекта. Мы уточним детали, персонализацию и доставку.'},
+ de:{'detail.functionTitle':'Funktionshinweise','detail.sameProducts':'Ähnliche Produkte','detail.recommendedSets':'Empfohlene Kombinationen','detail.recommendedDesc':'Ausgewählte Stücke, passend nach Raum, Stil und Kollektion.','detail.bottomInquiryTitle':'Benötigen Sie dieses Stück für ein Projekt?','detail.bottomInquiryDesc':'Senden Sie Modell und Projektanforderungen. Wir bestätigen Details, Anpassung und Versand.'},
+ fr:{'detail.functionTitle':'Fonctions','detail.sameProducts':'Produits similaires','detail.recommendedSets':'Associations recommandées','detail.recommendedDesc':'Pièces sélectionnées selon l’espace, le style et la collection.','detail.bottomInquiryTitle':'Besoin de cette pièce pour un projet ?','detail.bottomInquiryDesc':'Envoyez le modèle et les besoins du projet. Nous confirmerons les détails, la personnalisation et l’expédition.'},
+ ar:{'detail.functionTitle':'ملاحظات الوظيفة','detail.sameProducts':'منتجات مشابهة','detail.recommendedSets':'تنسيقات موصى بها','detail.recommendedDesc':'قطع مختارة تناسب هذا المنتج حسب المساحة والنمط والمجموعة.','detail.bottomInquiryTitle':'هل تحتاج هذه القطعة لمشروع؟','detail.bottomInquiryDesc':'أرسل موديل المنتج ومتطلبات المشروع. سنؤكد التفاصيل والتخصيص والشحن.'}
+};
+Object.keys(I18N).forEach(lang=>Object.assign(I18N[lang],DETAIL_RECOMMENDATION_COPY[lang]||DETAIL_RECOMMENDATION_COPY.en));
+
 
 
 const NAV_TAXONOMY_COPY={
