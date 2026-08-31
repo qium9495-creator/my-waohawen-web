@@ -76,8 +76,8 @@
   return [...roomFirst,...scored.filter(p=>!roomFirst.includes(p))].slice(0,10);
  };
  const compactProductCard=(p,currentLang=lang(),className='')=>{
-  const name=displayName(p,currentLang),imageSrc=preferredProductImage(p.images),dimensions=formatDimensions(p.dimensions,currentLang),intro=localized(p,'description',currentLang)||t('product.description.generic',currentLang);
-  return `<a class="${className}" href="${productHref(p)}"><span class="detail-rec-image"><img src="${esc(imageSrc)}" alt="${esc(name)}" loading="lazy" decoding="async"></span><span class="detail-rec-copy"><strong>${esc(name)}</strong><small>${esc(p.sku||p.name||'')}</small><em>${esc(money(p.price,p))}</em><p>${esc(intro)}</p>${dimensions?`<span class="detail-rec-dim">${esc(t('product.dimensions',currentLang))}: ${esc(dimensions)}</span>`:''}</span></a>`;
+  const name=displayName(p,currentLang),imageSrc=preferredProductImage(p.images);
+  return `<a class="${className}" href="${productHref(p)}"><span class="detail-rec-image"><img src="${esc(imageSrc)}" alt="${esc(name)}" loading="lazy" decoding="async"></span><span class="detail-rec-copy"><strong>${esc(name)}</strong><em>${esc(money(p.price,p))}</em></span></a>`;
  };
  function renderCatalog(){
   const grid=document.getElementById('productGrid');if(!grid||!localProducts.length)return;
