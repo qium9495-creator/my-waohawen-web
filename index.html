@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20260901-nav-layout-3" />
+  <link rel="stylesheet" href="styles.css?v=20260901-nav-dropdown-1" />
 </head>
 <body data-page="home">
   <div class="brand-intro" aria-hidden="true">
@@ -132,6 +132,14 @@
     </div>
     <div class="home-search-guide" id="homeSearchGuide" aria-hidden="true">
       <div class="home-search-guide__inner">
+        <section class="home-search-guide__recommendations" aria-labelledby="searchRecommendationsTitle">
+          <h2 id="searchRecommendationsTitle" data-i18n="search.guideRecommended">Recommended products</h2>
+          <div class="home-search-guide__products">
+            <a href="product-detail.html?id=1"><img src="assets/coffee-walnut-front.jpg" alt="" /><span data-i18n="search.product.one">Carved Walnut Coffee Table</span></a>
+            <a href="product-detail.html?id=2"><img src="assets/coffee-light-angle.jpg" alt="" /><span data-i18n="search.product.two">Art Nouveau Coffee Table</span></a>
+            <a href="products.html?collection=Puffpop%20sofa"><img src="assets/category-living.png" alt="" /><span data-i18n="search.product.three">Puffpop sofa Collection</span></a>
+          </div>
+        </section>
         <section class="home-search-guide__keywords" aria-labelledby="searchKeywordsTitle">
           <h2 id="searchKeywordsTitle" data-i18n="search.guideKeywords">Explore by keyword</h2>
           <div class="home-search-guide__chips">
@@ -140,14 +148,6 @@
             <a href="products.html?q=Dining%20Table" data-i18n="search.keyword.dining">Dining Tables</a>
             <a href="products.html?q=Bed" data-i18n="search.keyword.beds">Beds</a>
             <a href="products.html?collection=Puffpop%20sofa" data-i18n="search.keyword.puffpop">Puffpop sofa</a>
-          </div>
-        </section>
-        <section class="home-search-guide__recommendations" aria-labelledby="searchRecommendationsTitle">
-          <h2 id="searchRecommendationsTitle" data-i18n="search.guideRecommended">Recommended products</h2>
-          <div class="home-search-guide__products">
-            <a href="product-detail.html?id=1"><img src="assets/coffee-walnut-front.jpg" alt="" /><span data-i18n="search.product.one">Carved Walnut Coffee Table</span></a>
-            <a href="product-detail.html?id=2"><img src="assets/coffee-light-angle.jpg" alt="" /><span data-i18n="search.product.two">Art Nouveau Coffee Table</span></a>
-            <a href="products.html?collection=Puffpop%20sofa"><img src="assets/category-living.png" alt="" /><span data-i18n="search.product.three">Puffpop sofa Collection</span></a>
           </div>
         </section>
       </div>
@@ -307,7 +307,7 @@
 
   <script src="translations.js?v=20260901-nav-search-1"></script>
   <script src="local-products.js?v=20260825-10"></script>
-  <script src="script.js?v=20260901-nav-search-1"></script>
+  <script src="script.js?v=20260901-nav-dropdown-1"></script>
 </body>
 </html>
 
