@@ -195,3 +195,72 @@ const NAV_TAXONOMY_LOCALE_COPY={
  ar:{'collection.fuyi':'FUYI','collection.art':'ART','collection.rh':'RH-Style','collection.puffpop':'Puffpop sofa','style.traditional':'British Manor','style.modern':'French Chateau','style.farmhouse':'النهضة الإيطالية','style.rustic':'الإرث الأمريكي','nav.match.dining':'تنسيق غرفة الطعام','nav.match.living':'تنسيق غرفة المعيشة','nav.match.bedroom':'تنسيق غرفة النوم','nav.match.study':'تنسيق المكتب','nav.match.entryway':'تنسيق المدخل','nav.match.club':'فندق / نادٍ','nav.match.showroom':'غرفة نموذجية','nav.sofa.four':'أريكة 4 مقاعد','nav.sofa.three':'أريكة 3 مقاعد','nav.sofa.two':'أريكة بمقعدين','nav.sofa.single':'أريكة مفردة','nav.sofa.ottoman':'مسند قدم','nav.sofa.chaise':'شيزلونج','nav.sofa.lounge':'كرسي استرخاء','nav.dining.barStools':'كراسي بار / كونتر','nav.dining.hutch':'خزانة صحون علوية وسفلية','nav.dining.corner':'خزانة زاوية','nav.dining.wine':'خزانة نبيذ','nav.dining.barCabinet':'خزانة بار','nav.dining.vanity':'خزانة مغسلة','nav.bedroom.vanity':'طاولة زينة','nav.bedroom.mirror':'مرآة زينة','nav.bedroom.jewelry':'خزانة مجوهرات','nav.bedroom.closet':'غرفة ملابس','nav.bedroom.fullMirror':'مرآة كاملة','nav.bedroom.bench':'مقعد نهاية السرير / زينة','nav.bedroom.other':'أثاث غرفة آخر','nav.study.computer':'خزانة كمبيوتر','nav.study.secretary':'خزانة سكرتير','nav.entry.bench':'مقعد أحذية','nav.entry.mirror':'مرآة كاملة','nav.solution.living':'خطة غرفة المعيشة','nav.solution.dining':'خطة غرفة الطعام','nav.solution.bedroom':'خطة غرفة النوم','nav.solution.study':'خطة المكتب','nav.solution.entryway':'خطة المدخل','nav.solution.club':'خطة فندق / نادٍ','nav.solution.custom':'خطة منزل كاملة مخصصة','nav.acc.art':'لوحات زخرفية','nav.acc.lighting':'مصابيح طاولة / أرضية','nav.acc.rug':'سجاد','nav.acc.decor':'مزهرية / قطع ديكور','nav.acc.mirror':'مرايا','nav.acc.bedding':'مفروشات السرير','nav.acc.pillow':'وسائد','nav.acc.other':'إكسسوارات أخرى'}
 };
 Object.keys(I18N).forEach(lang=>Object.assign(I18N[lang],NAV_TAXONOMY_LOCALE_COPY[lang]||{}));
+
+const HOME_REDESIGN_COPY={
+ en:{
+  'nav.product':'Product','nav.about':'About','nav.contact':'Contact','nav.wholeHouseShort':'Whole-house','search.short':'Search','nav.newArrivals':'New Arrivals','nav.bestSellers':'Best Sellers',
+  'type.coffeeTables':'Coffee Tables','type.mediaConsoles':'Media Consoles','type.armchairs':'Armchairs','type.sideTables':'Side Tables','type.diningTables':'Dining Tables','type.diningChairs':'Dining Chairs','type.sideboards':'Sideboards','type.buffets':'Buffets','type.barCarts':'Bar Carts','type.benches':'Benches','type.desks':'Desks','type.officeChairs':'Office Chairs','type.bookcasesShort':'Bookcases','type.storage':'Storage',
+  'home.positioning.title':'Luxury Classic-Modern Furnishings & Whole-House Interior Solutions by WAO HAVEN',
+  'home.positioning.copy':'Discover Wao Haven’s world of high-end classic-modern solid-wood furnishings, heirloom-grade craftsmanship, Puffpop compressed sofas, and bespoke full-service interior solutions. With refined collections spanning heritage classics, quiet-luxury pieces and innovative compact sofas, we bring artistry, comfort and exclusivity to your distinguished residential space.'
+ },
+ zh:{
+  'nav.product':'产品','nav.collections':'系列','nav.wholeHouseShort':'全屋定制','nav.about':'关于','nav.contact':'联系我们','search.short':'搜索','nav.newArrivals':'新品推荐','nav.bestSellers':'热销精选',
+  'type.coffeeTables':'茶几','type.mediaConsoles':'电视柜','type.armchairs':'扶手椅','type.sideTables':'边几','type.diningTables':'餐桌','type.diningChairs':'餐椅','type.sideboards':'餐边柜','type.buffets':'餐具柜','type.barCarts':'吧车','type.benches':'长凳','type.desks':'书桌','type.officeChairs':'办公椅','type.bookcasesShort':'书柜','type.storage':'收纳柜',
+  'home.positioning.title':'WAO HAVEN 高端经典现代家具与全屋定制解决方案',
+  'home.positioning.copy':'领略 Wao Haven 的高端经典现代实木家具、传世级工艺、Puffpop 压缩沙发以及全套定制室内解决方案。我们拥有涵盖传世古典、静奢家具与创新压缩沙发的精致系列，为您尊贵的居住空间赋予艺术质感、舒适体验与专属格调。'
+ },
+ es:{
+  'nav.product':'Producto','nav.about':'Nosotros','nav.contact':'Contacto','nav.wholeHouseShort':'Casa completa','search.short':'Buscar','nav.newArrivals':'Novedades','nav.bestSellers':'Más vendidos',
+  'type.coffeeTables':'Mesas de centro','type.mediaConsoles':'Muebles multimedia','type.armchairs':'Butacas','type.sideTables':'Mesas auxiliares','type.diningTables':'Mesas de comedor','type.diningChairs':'Sillas de comedor','type.sideboards':'Aparadores','type.buffets':'Buffets','type.barCarts':'Carritos bar','type.benches':'Bancos','type.desks':'Escritorios','type.officeChairs':'Sillas de oficina','type.bookcasesShort':'Libreros','type.storage':'Almacenaje',
+  'home.positioning.title':'Mobiliario clásico-moderno de lujo y soluciones integrales de interiorismo por WAO HAVEN',
+  'home.positioning.copy':'Descubra el mundo de Wao Haven: muebles de madera maciza clásico-modernos de alta gama, artesanía de calidad patrimonial, sofás comprimidos Puffpop y soluciones integrales de interiorismo a medida. Con colecciones refinadas que abarcan clásicos de herencia, piezas de lujo discreto y sofás compactos innovadores, aportamos arte, confort y exclusividad a espacios residenciales distinguidos.'
+ },
+ ru:{
+  'nav.product':'Продукция','nav.about':'О нас','nav.contact':'Контакты','nav.wholeHouseShort':'Весь дом','search.short':'Поиск','nav.newArrivals':'Новинки','nav.bestSellers':'Бестселлеры',
+  'type.coffeeTables':'Журнальные столы','type.mediaConsoles':'Медиа-консоли','type.armchairs':'Кресла','type.sideTables':'Приставные столики','type.diningTables':'Обеденные столы','type.diningChairs':'Обеденные стулья','type.sideboards':'Серванты','type.buffets':'Буфеты','type.barCarts':'Барные тележки','type.benches':'Банкетки','type.desks':'Письменные столы','type.officeChairs':'Офисные кресла','type.bookcasesShort':'Книжные шкафы','type.storage':'Хранение',
+  'home.positioning.title':'Роскошная классико-современная мебель и интерьерные решения для всего дома от WAO HAVEN',
+  'home.positioning.copy':'Откройте мир Wao Haven: премиальная классико-современная мебель из массива, мастерство наследственного уровня, сжатые диваны Puffpop и индивидуальные интерьерные решения полного цикла. Наши коллекции объединяют наследственную классику, тихую роскошь и инновационные компактные диваны, привнося искусство, комфорт и эксклюзивность в достойные жилые пространства.'
+ },
+ de:{
+  'nav.product':'Produkt','nav.about':'Über uns','nav.contact':'Kontakt','nav.wholeHouseShort':'Ganzes Haus','search.short':'Suche','nav.newArrivals':'Neuheiten','nav.bestSellers':'Bestseller',
+  'type.coffeeTables':'Couchtische','type.mediaConsoles':'Media-Konsolen','type.armchairs':'Sessel','type.sideTables':'Beistelltische','type.diningTables':'Esstische','type.diningChairs':'Esszimmerstühle','type.sideboards':'Sideboards','type.buffets':'Buffets','type.barCarts':'Barwagen','type.benches':'Bänke','type.desks':'Schreibtische','type.officeChairs':'Bürostühle','type.bookcasesShort':'Bücherregale','type.storage':'Stauraum',
+  'home.positioning.title':'Luxuriöse klassisch-moderne Möbel und ganzheitliche Interior-Lösungen von WAO HAVEN',
+  'home.positioning.copy':'Entdecken Sie die Welt von Wao Haven mit hochwertigen klassisch-modernen Massivholzmöbeln, handwerklicher Qualität für Generationen, Puffpop Kompaktsofas und maßgeschneiderten Interior-Lösungen aus einer Hand. Mit raffinierten Kollektionen aus Traditionsklassikern, leiser Luxusmöblierung und innovativen kompakten Sofas bringen wir Kunst, Komfort und Exklusivität in anspruchsvolle Wohnräume.'
+ },
+ fr:{
+  'nav.product':'Produit','nav.about':'À propos','nav.contact':'Contact','nav.wholeHouseShort':'Maison complète','search.short':'Recherche','nav.newArrivals':'Nouveautés','nav.bestSellers':'Meilleures ventes',
+  'type.coffeeTables':'Tables basses','type.mediaConsoles':'Meubles média','type.armchairs':'Fauteuils','type.sideTables':'Tables d’appoint','type.diningTables':'Tables de repas','type.diningChairs':'Chaises de repas','type.sideboards':'Buffets bas','type.buffets':'Buffets','type.barCarts':'Chariots bar','type.benches':'Bancs','type.desks':'Bureaux','type.officeChairs':'Chaises de bureau','type.bookcasesShort':'Bibliothèques','type.storage':'Rangement',
+  'home.positioning.title':'Mobilier classique-moderne de luxe et solutions d’intérieur globales par WAO HAVEN',
+  'home.positioning.copy':'Découvrez l’univers de Wao Haven : mobilier haut de gamme en bois massif classique-moderne, savoir-faire de qualité patrimoniale, canapés compressés Puffpop et solutions d’intérieur sur mesure à service complet. Avec des collections raffinées mêlant classiques d’héritage, pièces de luxe discret et canapés compacts innovants, nous apportons art, confort et exclusivité aux espaces résidentiels distingués.'
+ },
+ ar:{
+  'nav.product':'المنتجات','nav.about':'من نحن','nav.contact':'اتصل بنا','nav.wholeHouseShort':'المنزل الكامل','search.short':'بحث','nav.newArrivals':'وصل حديثاً','nav.bestSellers':'الأكثر مبيعاً',
+  'type.coffeeTables':'طاولات قهوة','type.mediaConsoles':'وحدات وسائط','type.armchairs':'كراسي بذراعين','type.sideTables':'طاولات جانبية','type.diningTables':'طاولات طعام','type.diningChairs':'كراسي طعام','type.sideboards':'بوفيهات جانبية','type.buffets':'بوفيهات','type.barCarts':'عربات بار','type.benches':'مقاعد طويلة','type.desks':'مكاتب','type.officeChairs':'كراسي مكتب','type.bookcasesShort':'خزائن كتب','type.storage':'تخزين',
+  'home.positioning.title':'مفروشات كلاسيكية حديثة فاخرة وحلول داخلية متكاملة من WAO HAVEN',
+  'home.positioning.copy':'اكتشف عالم Wao Haven من المفروشات الخشبية الصلبة الكلاسيكية الحديثة الراقية، والحرفية ذات المستوى التراثي، وأرائك Puffpop المضغوطة، وحلول التصميم الداخلي المخصصة كاملة الخدمة. من خلال مجموعات راقية تمتد بين الكلاسيكيات التراثية وقطع الرفاهية الهادئة والأرائك compact المبتكرة، نمنح مساحتك السكنية المميزة فناً وراحة وطابعاً حصرياً.'
+ }
+};
+Object.keys(I18N).forEach(lang=>Object.assign(I18N[lang],HOME_REDESIGN_COPY.en,HOME_REDESIGN_COPY[lang]||{}));
+
+const ROOM_SHOWCASE_COPY={
+ en:{'room.entryDecor':'Entryway & Decor','room.cta.entryway':'View Entryway','room.cta.dining':'View Dining','room.cta.bedroom':'View Bedroom','room.cta.office':'View Office','room.cta.living':'Explore Living'},
+ zh:{'room.entryDecor':'玄关与配饰','room.cta.entryway':'查看玄关','room.cta.dining':'查看餐厅','room.cta.bedroom':'查看卧室','room.cta.office':'查看书房','room.cta.living':'探索客厅'},
+ es:{'room.entryDecor':'Entrada y decoración','room.cta.entryway':'Ver entrada','room.cta.dining':'Ver comedor','room.cta.bedroom':'Ver dormitorio','room.cta.office':'Ver oficina','room.cta.living':'Explorar sala'},
+ ru:{'room.entryDecor':'Прихожая и декор','room.cta.entryway':'Смотреть прихожую','room.cta.dining':'Смотреть столовую','room.cta.bedroom':'Смотреть спальню','room.cta.office':'Смотреть кабинет','room.cta.living':'Смотреть гостиную'},
+ de:{'room.entryDecor':'Flur und Dekor','room.cta.entryway':'Flur ansehen','room.cta.dining':'Esszimmer ansehen','room.cta.bedroom':'Schlafzimmer ansehen','room.cta.office':'Büro ansehen','room.cta.living':'Wohnzimmer ansehen'},
+ fr:{'room.entryDecor':'Entrée et décor','room.cta.entryway':'Voir entrée','room.cta.dining':'Voir salle à manger','room.cta.bedroom':'Voir chambre','room.cta.office':'Voir bureau','room.cta.living':'Explorer salon'},
+ ar:{'room.entryDecor':'المدخل والديكور','room.cta.entryway':'عرض المدخل','room.cta.dining':'عرض غرفة الطعام','room.cta.bedroom':'عرض غرفة النوم','room.cta.office':'عرض المكتب','room.cta.living':'استكشاف المعيشة'}
+};
+Object.keys(I18N).forEach(lang=>Object.assign(I18N[lang],ROOM_SHOWCASE_COPY.en,ROOM_SHOWCASE_COPY[lang]||{}));
+
+const RECOMMENDED_SETS_COPY={
+ en:{'nav.recommendedSets':'Recommended Sets','recommended.dining':'Dining Room Sets','recommended.living':'Living Room Sets','recommended.bedroom':'Bedroom Sets','recommended.study':'Study Sets','recommended.entryway':'Entryway Sets','recommended.hotel':'Hotel / Club Sets','recommended.showroom':'Showroom Sets'},
+ zh:{'nav.recommendedSets':'推荐搭配','recommended.dining':'餐厅成套搭配','recommended.living':'客厅成套搭配','recommended.bedroom':'卧室成套搭配','recommended.study':'书房搭配','recommended.entryway':'玄关搭配','recommended.hotel':'酒店 / 会所搭配','recommended.showroom':'样板间搭配'}
+};
+Object.keys(I18N).forEach(lang=>Object.assign(I18N[lang],RECOMMENDED_SETS_COPY.en,RECOMMENDED_SETS_COPY[lang]||{}));
+
+const HOME_SEARCH_GUIDE_COPY={
+ en:{'search.guideKeywords':'Explore by keyword','search.guideRecommended':'Recommended products','search.keyword.sofas':'Sofas','search.keyword.coffee':'Coffee Tables','search.keyword.dining':'Dining Tables','search.keyword.beds':'Beds','search.keyword.puffpop':'Puffpop sofa','search.product.one':'Carved Walnut Coffee Table','search.product.two':'Art Nouveau Coffee Table','search.product.three':'Puffpop sofa Collection'},
+ zh:{'search.guideKeywords':'热门关键词','search.guideRecommended':'推荐产品','search.keyword.sofas':'沙发','search.keyword.coffee':'茶几','search.keyword.dining':'餐桌','search.keyword.beds':'床','search.keyword.puffpop':'Puffpop 沙发','search.product.one':'雕花胡桃木茶几','search.product.two':'Art Nouveau 雕花茶几','search.product.three':'Puffpop 沙发系列'}
+};
+Object.keys(I18N).forEach(lang=>Object.assign(I18N[lang],HOME_SEARCH_GUIDE_COPY.en,HOME_SEARCH_GUIDE_COPY[lang]||{}));
