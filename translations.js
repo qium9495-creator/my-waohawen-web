@@ -264,3 +264,9 @@ const HOME_SEARCH_GUIDE_COPY={
  zh:{'search.guideKeywords':'热门关键词','search.guideRecommended':'推荐产品','search.keyword.sofas':'沙发','search.keyword.coffee':'茶几','search.keyword.dining':'餐桌','search.keyword.beds':'床','search.keyword.puffpop':'Puffpop 沙发','search.product.one':'雕花胡桃木茶几','search.product.two':'Art Nouveau 雕花茶几','search.product.three':'Puffpop 沙发系列'}
 };
 Object.keys(I18N).forEach(lang=>Object.assign(I18N[lang],HOME_SEARCH_GUIDE_COPY.en,HOME_SEARCH_GUIDE_COPY[lang]||{}));
+
+const DETAIL_PAGINATION_COPY={
+ en:{'detail.variant.sizes':'Different Sizes','detail.variant.colors':'Different Colors','detail.variant.materials':'Different Materials','catalog.pagePrev':'Prev','catalog.pageNext':'Next','catalog.pageGo':'Go to page {page}'},
+ zh:{'detail.variant.sizes':'不同尺寸','detail.variant.colors':'不同颜色','detail.variant.materials':'不同材质','catalog.pagePrev':'上一页','catalog.pageNext':'下一页','catalog.pageGo':'跳转到第 {page} 页'}
+};
+Object.keys(I18N).forEach(lang=>Object.assign(I18N[lang],DETAIL_PAGINATION_COPY.en,DETAIL_PAGINATION_COPY[lang]||{}));
