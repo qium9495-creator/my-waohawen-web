@@ -47,6 +47,10 @@
   if(whiteName)return whiteName;
   return list.find(src=>/\.png(?:[?#].*)?$/i.test(src))||list[0]||'assets/logo-icon.png';
  };
+ const alternateProductImage=images=>{
+  const list=[...new Set((Array.isArray(images)?images:[]).filter(Boolean))],primary=preferredProductImage(list);
+  return list.find(src=>src!==primary)||'';
+ };
  const localized=(p,key,currentLang=lang())=>{
   if(currentLang==='zh')return p[key]||'';
   if(key==='description')return t('product.description.generic',currentLang);
@@ -83,7 +87,7 @@
   const grid=document.getElementById('productGrid');if(!grid||!localProducts.length)return;
   const currentLang=lang();
   const rows=[...localProducts].sort((a,b)=>(a.sort_order||0)-(b.sort_order||0));
-  grid.innerHTML=rows.map(p=>{const name=displayName(p,currentLang),style=cleanStyle(p.style,currentLang),filterStyle=normalizedStyle(p.style),collection=localName(p.collection,collectionKeys,currentLang),room=localName(normalizedRoom(p.room),roomKeys,currentLang),dimensions=formatDimensions(p.dimensions,currentLang),imageSrc=preferredProductImage(p.images);return `<article class="product-card" data-title="${esc(`${p.name||''} ${p.nameZh||''} ${name}`)}" data-style="${esc(filterStyle)}" data-room="${esc(normalizedRoom(p.room))}" data-type="${esc(p.category)}" data-collection="${esc(p.collection)}" data-price="${p.price||0}"><a class="product-image" href="product-detail.html?id=${encodeURIComponent(p.id)}"><img src="${esc(imageSrc)}" alt="${esc(name)}" loading="lazy" decoding="async"></a><a class="product-title-link" href="product-detail.html?id=${encodeURIComponent(p.id)}"><p>${esc(name)}</p></a><small>${esc([collection,style,room].filter(Boolean).join(' · '))}</small>${dimensions?`<div class="product-dimensions"><span>${esc(t('product.dimensions',currentLang))}</span><strong>${esc(dimensions)}</strong></div>`:''}<div class="product-meta"><span class="product-price"><small>${esc(t('price.reference',currentLang))}</small><strong>${money(p.price,p)}</strong></span><a href="product-detail.html?id=${encodeURIComponent(p.id)}">${esc(t('product.details',currentLang))}</a></div></article>`}).join('');
+  grid.innerHTML=rows.map(p=>{const name=displayName(p,currentLang),filterStyle=normalizedStyle(p.style),dimensions=formatDimensions(p.dimensions,currentLang),imageSrc=preferredProductImage(p.images),alternateSrc=alternateProductImage(p.images);return `<article class="product-card${alternateSrc?' has-alternate-image':''}" data-title="${esc(`${p.name||''} ${p.nameZh||''} ${name}`)}" data-style="${esc(filterStyle)}" data-room="${esc(normalizedRoom(p.room))}" data-type="${esc(p.category)}" data-collection="${esc(p.collection)}" data-price="${p.price||0}"><a class="product-image" href="product-detail.html?id=${encodeURIComponent(p.id)}"><img class="product-image__primary" src="${esc(imageSrc)}" alt="${esc(name)}" loading="lazy" decoding="async">${alternateSrc?`<img class="product-image__alternate" src="${esc(alternateSrc)}" alt="" loading="lazy" decoding="async" aria-hidden="true">`:''}</a><a class="product-title-link" href="product-detail.html?id=${encodeURIComponent(p.id)}"><p>${esc(name)}</p></a>${dimensions?`<div class="product-dimensions"><span>${esc(t('product.dimensions',currentLang))}</span><strong>${esc(dimensions)}</strong></div>`:''}<div class="product-meta"><span class="product-price"><small>${esc(t('price.reference',currentLang))}</small><strong>${money(p.price,p)}</strong></span></div></article>`}).join('');
   bindFilters();
  }
  function bindFilters(){

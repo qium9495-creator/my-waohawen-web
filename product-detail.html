@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20260901-font-logo-sets-1" />
+  <link rel="stylesheet" href="styles.css?v=20260902-catalog-card-1" />
 </head>
 <body data-page="detail">
   <header class="site-header secondary-site-header">
@@ -55,10 +55,13 @@
           <h2 data-i18n="detail.functionTitle">Function Notes</h2>
           <p class="detail-description" data-i18n="detail.description">This page focuses on the product itself. For dimensions, materials, finishes, customization and shipping details, send us an inquiry.</p>
         </div>
-        <section class="detail-same-products" aria-labelledby="sameProductsTitle">
-          <div class="detail-subhead"><h2 id="sameProductsTitle" data-i18n="detail.sameProducts">Same Products</h2><a id="sameProductsLink" href="products.html" data-i18n="common.viewAll">View All</a></div>
-          <div class="detail-same-strip" id="detailSameProducts"></div>
-        </section>
+        <details class="detail-same-products">
+          <summary><span id="sameProductsTitle" data-i18n="detail.sameProducts">Same Products</span></summary>
+          <div class="detail-same-products__body">
+            <a id="sameProductsLink" href="products.html" data-i18n="common.viewAll">View All</a>
+            <div class="detail-same-strip" id="detailSameProducts"></div>
+          </div>
+        </details>
         <dl class="detail-facts" id="detailSpecifications">
           <div><dt data-i18n="detail.spec.dimensions">Dimensions</dt><dd data-spec="dimensions">Custom dimensions available</dd></div>
           <div><dt data-i18n="detail.spec.collection">Collection</dt><dd data-spec="collection">RH-Style Collection</dd></div>
@@ -94,11 +97,8 @@
 
   <div class="footer-wrap"><footer class="footer-panel container"><div class="footer-brand"><strong>WAO HAVEN</strong><p data-i18n="footer.desc">RH-inspired luxury furniture. Direct from China to homes worldwide.</p></div><div><h4 data-i18n="footer.nav">Navigation</h4><a href="about.html" data-i18n="nav.about">About Us</a><a href="products.html" data-i18n="nav.all">All Furniture</a></div><div><h4 data-i18n="footer.service">Services</h4><a href="whole-house.html" data-i18n="collection.custom">Whole-house Custom Design</a><a href="#detailInquiry" data-open-inquiry data-i18n="nav.inquiry">Inquiry</a></div><div><h4 data-i18n="footer.contact">Contact</h4><a href="#detailInquiry" data-open-inquiry>WhatsApp</a><a href="#detailInquiry" data-open-inquiry>Email</a><a href="#detailInquiry" data-open-inquiry>WeChat</a></div><div class="footer-bottom"><span>© 2026 WAO HAVEN.</span><span>waohaven.com</span></div></footer></div>
   <script src="translations.js?v=20260831-rooms-1"></script>
-  <script src="script.js?v=20260829-1"></script>
+  <script src="script.js?v=20260902-catalog-card-1"></script>
   <script src="local-products.js?v=20260825-10"></script>
-  <script src="catalog-runtime.js?v=20260829-3"></script>
+  <script src="catalog-runtime.js?v=20260902-catalog-card-1"></script>
 </body>
 </html>
-
-
-
