@@ -28,13 +28,27 @@ function syncNavigationState(){
  if(page==='products'){
   const selector=currentType?`a[href*="type=${encodeURIComponent(currentType)}"]`:currentCollection?`a[href*="collection=${encodeURIComponent(currentCollection)}"]`:currentRoom?`a[href*="room=${encodeURIComponent(currentRoom)}"]`:'a[href="products.html"]';
   currentLink=mainNav.querySelector(selector);
- }else currentLink=hash?mainNav.querySelector(`a[href="${hash}"]`):mainNav.querySelector('a[href="index.html"]');
+ }else if(page==='detail')currentLink=mainNav.querySelector('a[href="products.html"]');
+ else if(page==='whole-house')currentLink=mainNav.querySelector('a[href="whole-house.html"]');
+ else if(page==='about')currentLink=mainNav.querySelector('a[href="about.html"]');
+ else if(page==='contact')currentLink=mainNav.querySelector('a[href="contact.html"]');
+ else currentLink=hash?mainNav.querySelector(`a[href="${hash}"]`):mainNav.querySelector('a[href="index.html"]');
  if(currentLink){
   currentLink.classList.add('current');currentLink.setAttribute('aria-current','page');
   currentLink.closest('.nav-item')?.querySelector(':scope > a')?.classList.add('current');
  }
 }
 syncNavigationState();
+const globalHeader=document.querySelector('.unified-header,.home-header'),globalSearchForm=document.getElementById('homeSearchForm'),globalSearchGuide=document.getElementById('homeSearchGuide'),globalSiteSearch=document.getElementById('siteSearch');
+const setGlobalSearchGuide=open=>{if(!globalSearchGuide||!globalSiteSearch)return;globalSearchGuide.classList.toggle('open',open);globalSearchGuide.setAttribute('aria-hidden',String(!open));globalSiteSearch.setAttribute('aria-expanded',String(open))};
+const closeGlobalHeaderOverlays=()=>{setGlobalSearchGuide(false);langMenu?.classList.remove('open');langBtn?.setAttribute('aria-expanded','false');mainNav?.classList.remove('open');menuBtn?.setAttribute('aria-expanded','false');mainNav?.querySelectorAll('.nav-item.expanded').forEach(item=>{item.classList.remove('expanded');item.querySelector(':scope > a')?.setAttribute('aria-expanded','false')})};
+globalSiteSearch?.addEventListener('focus',()=>setGlobalSearchGuide(true));
+globalSearchForm?.addEventListener('click',()=>{if(matchMedia('(max-width: 1114px)').matches)setGlobalSearchGuide(true)});
+globalSearchForm?.addEventListener('submit',event=>{event.preventDefault();const q=globalSiteSearch?.value.trim();if(q)location.href='products.html?q='+encodeURIComponent(q);else setGlobalSearchGuide(true)});
+document.addEventListener('pointerdown',event=>{if(globalSearchGuide?.classList.contains('open')&&!globalSearchGuide.contains(event.target)&&!globalSearchForm?.contains(event.target))setGlobalSearchGuide(false)});
+document.addEventListener('keydown',event=>{if(event.key==='Escape')closeGlobalHeaderOverlays()});
+globalHeader?.addEventListener('mouseleave',()=>{if(matchMedia('(hover: hover) and (pointer: fine)').matches)closeGlobalHeaderOverlays()});
+document.querySelectorAll('[data-carousel-scroll]').forEach(button=>button.addEventListener('click',()=>{const target=document.getElementById(button.dataset.carouselScroll);if(!target)return;const dir=Number(button.dataset.scrollDir)||1;target.scrollBy({left:dir*Math.max(220,target.clientWidth*.72),behavior:'smooth'})}));
 if(page==='home'){
  const slides=[...document.querySelectorAll('.hero-slide')],dots=[...document.querySelectorAll('#heroDots button')];let current=0,timer;function show(i){current=(i+slides.length)%slides.length;slides.forEach((s,n)=>s.classList.toggle('active',n===current));dots.forEach((d,n)=>d.classList.toggle('active',n===current))}function start(){clearInterval(timer);timer=setInterval(()=>show(current+1),5200)}document.getElementById('prevSlide')?.addEventListener('click',()=>{show(current-1);start()});document.getElementById('nextSlide')?.addEventListener('click',()=>{show(current+1);start()});dots.forEach((d,i)=>d.addEventListener('click',()=>{show(i);start()}));start();
  const homeSearchForm=document.getElementById('homeSearchForm'),homeSearchGuide=document.getElementById('homeSearchGuide'),siteSearch=document.getElementById('siteSearch');
