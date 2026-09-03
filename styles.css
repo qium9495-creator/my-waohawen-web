@@ -2057,3 +2057,9 @@ body[data-page="products"] .catalog-pagination{margin-top:30px}
  .site-header.home-header.unified-header .home-search-guide__chips a{min-height:44px;padding:0 15px;font-size:15px}
  body[data-page="products"] .catalog-filter-bar .catalog-search{display:none}
 }
+
+/* 2026-09-03 PRODUCT room taxonomy */
+@media(min-width:1116px){
+ .site-header.home-header.unified-header .home-product-mega .home-mega__inner{grid-template-columns:repeat(5,minmax(150px,1fr));gap:18px}
+ .site-header.home-header.unified-header .home-product-mega .home-mega__column a{min-height:34px;padding:0 12px;font-size:13px}
+}
