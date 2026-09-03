@@ -1025,6 +1025,12 @@ body[data-page="home"] .site-header.home-header{position:sticky;top:0;z-index:18
 
 @media(max-width:1449px){
  .room-showcase__tile--decor,.room-showcase__tile--bedroom{grid-column:1/-1;min-height:360px}
+ .room-showcase__tile--dining{grid-column:1/-1}
+}
+
+/* Fill the final row when the home collections use the laptop two-column layout. */
+@media(min-width:561px) and (max-width:1100px){
+ .home-collection-cards .collection-card:last-child:nth-child(odd){grid-column:1/-1}
 }
 
 /* 2026-09-01 homepage full-bleed poster copy and lighter type hierarchy */
