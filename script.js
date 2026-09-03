@@ -73,7 +73,49 @@ document.addEventListener('keydown',event=>{if(event.key==='Escape')closeGlobalH
 globalHeader?.addEventListener('mouseleave',()=>{if(matchMedia('(min-width: 1115px) and (hover: hover) and (pointer: fine)').matches)closeGlobalHeaderOverlays()});
 document.querySelectorAll('[data-carousel-scroll]').forEach(button=>button.addEventListener('click',()=>{const target=document.getElementById(button.dataset.carouselScroll);if(!target)return;const dir=Number(button.dataset.scrollDir)||1;target.scrollBy({left:dir*Math.max(220,target.clientWidth*.72),behavior:'smooth'})}));
 if(page==='home'){
- const slides=[...document.querySelectorAll('.hero-slide')],dots=[...document.querySelectorAll('#heroDots button')];let current=0,timer;function show(i){current=(i+slides.length)%slides.length;slides.forEach((s,n)=>s.classList.toggle('active',n===current));dots.forEach((d,n)=>d.classList.toggle('active',n===current))}function start(){clearInterval(timer);timer=setInterval(()=>show(current+1),5200)}document.getElementById('prevSlide')?.addEventListener('click',()=>{show(current-1);start()});document.getElementById('nextSlide')?.addEventListener('click',()=>{show(current+1);start()});dots.forEach((d,i)=>d.addEventListener('click',()=>{show(i);start()}));start();
+ const hero=document.getElementById('hero');
+ const slides=[...document.querySelectorAll('.hero-slide')],dots=[...document.querySelectorAll('#heroDots button')];
+ let current=0,timer,gesture=null,suppressClickUntil=0;
+ function show(i){if(!slides.length)return;current=(i+slides.length)%slides.length;slides.forEach((s,n)=>s.classList.toggle('active',n===current));dots.forEach((d,n)=>d.classList.toggle('active',n===current))}
+ function start(){clearInterval(timer);if(slides.length>1)timer=setInterval(()=>show(current+1),5200)}
+ document.getElementById('prevSlide')?.addEventListener('click',()=>{show(current-1);start()});
+ document.getElementById('nextSlide')?.addEventListener('click',()=>{show(current+1);start()});
+ dots.forEach((d,i)=>d.addEventListener('click',()=>{show(i);start()}));
+ const cancelGesture=()=>{if(gesture){gesture=null;start()}};
+ hero?.addEventListener('touchstart',event=>{
+  if(event.touches.length!==1){cancelGesture();return}
+  if(!matchMedia('(max-width: 1114px)').matches||slides.length<2||event.target.closest('.hero-arrow,#heroDots'))return;
+  const touch=event.touches[0];
+  gesture={id:touch.identifier,x:touch.clientX,y:touch.clientY,axis:null};
+  suppressClickUntil=0;
+  clearInterval(timer);
+ },{passive:true});
+ hero?.addEventListener('touchmove',event=>{
+  if(!gesture)return;
+  if(event.touches.length!==1){cancelGesture();return}
+  const touch=event.touches[0];
+  if(touch.identifier!==gesture.id){cancelGesture();return}
+  const dx=touch.clientX-gesture.x,dy=touch.clientY-gesture.y;
+  // Lock to the initial intent so scrolling or pinch zoom never changes slides.
+  if(!gesture.axis&&Math.max(Math.abs(dx),Math.abs(dy))>=12)gesture.axis=Math.abs(dx)>Math.abs(dy)*1.25?'x':'y';
+  if(gesture.axis==='y'){cancelGesture();return}
+  if(gesture.axis==='x'&&event.cancelable)event.preventDefault();
+ },{passive:false});
+ hero?.addEventListener('touchend',event=>{
+  if(!gesture)return;
+  const touch=[...event.changedTouches].find(item=>item.identifier===gesture.id);
+  if(!touch)return;
+  const dx=touch.clientX-gesture.x,dy=touch.clientY-gesture.y;
+  const horizontal=gesture.axis!=='y'&&Math.abs(dx)>Math.abs(dy)*1.25;
+  if(horizontal&&Math.abs(dx)>=12)suppressClickUntil=Date.now()+500;
+  if(horizontal&&Math.abs(dx)>=Math.min(64,hero.clientWidth*.12))show(current+(dx<0?1:-1));
+  cancelGesture();
+ },{passive:true});
+ hero?.addEventListener('touchcancel',cancelGesture,{passive:true});
+ hero?.addEventListener('click',event=>{
+  if(Date.now()<suppressClickUntil){event.preventDefault();event.stopPropagation();suppressClickUntil=0}
+ },true);
+ start();
  const homeSearchForm=document.getElementById('homeSearchForm'),homeSearchGuide=document.getElementById('homeSearchGuide'),siteSearch=document.getElementById('siteSearch');
  const setHomeSearchGuide=open=>{if(!homeSearchGuide||!siteSearch)return;homeSearchGuide.classList.toggle('open',open);homeSearchGuide.setAttribute('aria-hidden',String(!open));siteSearch.setAttribute('aria-expanded',String(open))};
  const homeHeader=document.querySelector('.home-header');

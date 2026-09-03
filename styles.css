@@ -1917,6 +1917,10 @@ body[data-page="products"] .product-image img{mix-blend-mode:normal}
 body[data-page="products"] .catalog-pagination{margin-top:30px}
 }
 
+@media(max-width:1114px){
+ body[data-page="home"] #hero{touch-action:pan-y pinch-zoom}
+}
+
 /* 2026-09-02 mobile navigation drawer and search guide hierarchy */
 .home-search-guide__mobile-search{display:none}
 .mobile-submenu-toggle{display:none}
