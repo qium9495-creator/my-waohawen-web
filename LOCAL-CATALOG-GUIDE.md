@@ -9,6 +9,7 @@
 - `images/fuyi/`
 - `images/art/`
 - `images/rh-style/`
+- `images/Puffpop sofa/`
 
 文件名只用小写英文、数字和短横线，例如：
 
@@ -45,7 +46,7 @@
 }
 ```
 
-三大系列名称必须完全使用以下其中一个：
+网站显示名已将 FUYI 改为 `Versailles`。为兼容现有产品链接和图片目录，数据中的内部系列值仍必须使用以下其中一个：
 
 - `Fuyi Collection`
 - `Art Collection`
@@ -58,7 +59,7 @@
 保存文件后打开：
 
 - 全部产品：`http://127.0.0.1:4173/products.html`
-- Fuyi：`products.html?collection=Fuyi%20Collection`
+- Versailles（兼容旧内部值）：`products.html?collection=Fuyi%20Collection`
 - Art：`products.html?collection=Art%20Collection`
 - RH-Style：`products.html?collection=RH-Style%20Collection`
 

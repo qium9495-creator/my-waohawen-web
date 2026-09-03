@@ -213,7 +213,7 @@ if(page==='detail'){
  const thumbs=document.getElementById('detailThumbnails'),detailVideo=document.getElementById('detailVideo');
  const showMedia=src=>{const isVideo=/\.(mp4|webm|ogg)$/i.test(src);detailImage.hidden=isVideo;detailVideo.hidden=!isVideo;if(isVideo){detailVideo.src=src;detailVideo.load()}else{detailVideo.pause();detailImage.src=src}};
  item.gallery.slice(0,5).forEach((src,index)=>{const isVideo=/\.(mp4|webm|ogg)$/i.test(src),button=document.createElement('button'),currentLang=document.documentElement.lang||'en';button.type='button';button.className='detail-thumbnail'+(index===0?' active':'');button.setAttribute('aria-label',tx(currentLang,isVideo?'product.videoAria':'product.imageAria').replace('{index}',index+1));button.innerHTML=isVideo?'<span class="detail-video-mark">▶<small>VIDEO</small></span>':`<img src="${src}" alt="" />`;button.addEventListener('click',()=>{showMedia(src);thumbs.querySelectorAll('.detail-thumbnail').forEach(node=>node.classList.remove('active'));button.classList.add('active')});thumbs.appendChild(button)});
- Object.entries(item.spec||{}).forEach(([key,value])=>{const field=document.querySelector(`[data-spec="${key}"]`);if(field)field.textContent=value});
+ Object.entries(item.spec||{}).forEach(([key,value])=>{const field=document.querySelector(`[data-spec="${key}"]`);if(field)field.textContent=key==='collection'?canonicalLabel('collection',value,document.documentElement.lang||'en'):value});
  const dialog=document.getElementById('detailInquiry');
  document.querySelectorAll('[data-open-inquiry]').forEach(button=>button.addEventListener('click',event=>{event.preventDefault();dialog.showModal()}));
  document.querySelector('[data-close-inquiry]')?.addEventListener('click',()=>dialog.close());
