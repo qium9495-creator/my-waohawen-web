@@ -35,8 +35,14 @@ function syncNavigationState(){
  mainNav.querySelectorAll('a').forEach(link=>{link.classList.remove('current');link.removeAttribute('aria-current')});
  let currentLink=null;
  if(page==='products'){
-  const selector=currentType?`a[href*="type=${encodeURIComponent(currentType)}"]`:currentCollection?`a[href*="collection=${encodeURIComponent(currentCollection)}"]`:currentRoom?`a[href*="room=${encodeURIComponent(currentRoom)}"]`:'a[href="products.html"]';
-  currentLink=mainNav.querySelector(selector);
+  const productLinks=[...mainNav.querySelectorAll('a[href^="products.html"]')];
+  currentLink=productLinks.find(link=>{
+   const url=new URL(link.getAttribute('href'),location.href),linkRoom=url.searchParams.get('room'),linkType=url.searchParams.get('type'),linkCollection=url.searchParams.get('collection');
+   if(currentType)return linkType===currentType&&(!currentRoom||linkRoom===currentRoom);
+   if(currentCollection)return linkCollection===currentCollection;
+   if(currentRoom)return linkRoom===currentRoom&&!linkType;
+   return !linkRoom&&!linkType&&!linkCollection;
+  })||mainNav.querySelector('a[href="products.html"]');
  }else if(page==='detail')currentLink=mainNav.querySelector('a[href="products.html"]');
  else if(page==='whole-house')currentLink=mainNav.querySelector('a[href="whole-house.html"]');
  else if(page==='about')currentLink=mainNav.querySelector('a[href="about.html"]');
