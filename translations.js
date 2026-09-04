@@ -277,14 +277,16 @@ const PRODUCT_TAXONOMY_COPY={
   'type.beds':'Beds','type.nightstands':'Nightstands','type.dressers':'Dressers','type.wardrobes':'Wardrobes','type.dressingTables':'Dressing Tables','type.benches':'Benches','type.mirrors':'Mirrors',
   'type.diningTables':'Dining Tables','type.diningChairs':'Dining Chairs','type.sideboards':'Sideboards','type.barCarts':'Bar Carts','type.barStools':'Bar Stools','type.displayCabinets':'Display Cabinets','type.diningBenches':'Benches',
   'type.officeDesks':'Office Desks','type.officeChairs':'Office Chairs','type.officeBookcases':'Bookcases','type.filingCabinets':'Filing Cabinets','type.credenzas':'Credenzas','type.deskAccessories':'Desk Accessories',
-  'type.entryConsoleTables':'Console Tables','type.shoeCabinets':'Shoe Cabinets','type.coatRacks':'Coat Racks','type.entryBenches':'Benches','type.entryMirrors':'Mirrors','type.umbrellaStands':'Umbrella Stands'
+  'type.entryConsoleTables':'Console Tables','type.shoeCabinets':'Shoe Cabinets','type.coatRacks':'Coat Racks','type.entryBenches':'Benches','type.entryMirrors':'Mirrors','type.umbrellaStands':'Umbrella Stands',
+  'room.others':'Others','type.outdoors':'outdoors','type.accessories':'Accessories','type.others':'others'
  },
  zh:{
   'type.sofas':'沙发','type.armchairs':'扶手椅 / 休闲椅','type.coffeeTables':'茶几','type.tvStands':'电视柜','type.sideTables':'边几 / 角几','type.bookcases':'书柜 / 置物架','type.ottomans':'脚凳 / 坐墩','type.consoleTables':'条案 / 玄关桌',
   'type.beds':'床','type.nightstands':'床头柜','type.dressers':'斗柜 / 抽屉柜','type.wardrobes':'衣柜','type.dressingTables':'梳妆台','type.benches':'床尾凳','type.mirrors':'镜子',
   'type.diningTables':'餐桌','type.diningChairs':'餐椅','type.sideboards':'餐边柜','type.barCarts':'酒水车','type.barStools':'吧台椅','type.displayCabinets':'展示柜 / 瓷器柜','type.diningBenches':'餐厅长凳',
   'type.officeDesks':'办公桌 / 写字台','type.officeChairs':'办公椅 / 书桌椅','type.officeBookcases':'书柜 / 书架','type.filingCabinets':'文件柜','type.credenzas':'矮柜 / 储物柜','type.deskAccessories':'桌面收纳 / 配件',
-  'type.entryConsoleTables':'玄关桌 / 条案','type.shoeCabinets':'鞋柜','type.coatRacks':'衣帽架','type.entryBenches':'换鞋凳','type.entryMirrors':'墙面镜','type.umbrellaStands':'雨伞架'
+  'type.entryConsoleTables':'玄关桌 / 条案','type.shoeCabinets':'鞋柜','type.coatRacks':'衣帽架','type.entryBenches':'换鞋凳','type.entryMirrors':'墙面镜','type.umbrellaStands':'雨伞架',
+  'room.others':'Others','type.outdoors':'outdoors','type.accessories':'Accessories','type.others':'others'
  }
 };
 Object.keys(I18N).forEach(lang=>Object.assign(I18N[lang],PRODUCT_TAXONOMY_COPY.en,PRODUCT_TAXONOMY_COPY[lang]||{}));

@@ -13,7 +13,7 @@
   ar:{'办公桌':'مكتب تنفيذي','玻璃':'سطح زجاجي','布艺床':'سرير قماشي','餐边柜':'بوفيه جانبي','餐椅':'كرسي طعام','餐桌':'طاولة طعام','茶几':'طاولة قهوة','茶几桌':'طاولة قهوة','床':'سرير','床头柜':'كومود جانبي','电视柜':'وحدة تلفزيون','扶手餐椅':'كرسي طعام بذراعين','贵妃椅':'شيزلونج','边几':'طاولة جانبية','角几':'طاولة جانبية','角几2':'طاولة جانبية','脚凳':'عثمانية','酒柜':'خزانة بار','沙发单人位':'أريكة مفردة','沙发双人位':'أريكة بمقعدين','沙发三人位':'أريكة بثلاثة مقاعد','沙发四人位':'أريكة بأربعة مقاعد','书桌':'مكتب','书柜':'خزانة كتب','梳妆凳':'كرسي تسريحة','梳妆镜':'مرآة تسريحة','休闲椅':'كرسي استرخاء','休闲椅2':'كرسي استرخاء','玄关台':'طاولة كونسول','玄关桌':'طاولة كونسول','玄关柜':'خزانة مدخل','衣柜':'خزانة ملابس','长衣柜':'خزانة طويلة','真皮床':'سرير جلدي','转盘':'صينية دوارة','妆台':'طاولة تسريحة','装饰柜':'خزانة عرض زخرفية','装饰桌':'طاولة زخرفية'}
  };
  const collectionKeys={'Fuyi Collection':'collection.fuyi','Art Collection':'collection.art','RH-Style Collection':'collection.rh','Puffpop sofa':'collection.puffpop'};
- const roomKeys={'Living Room':'room.living','Dining Room':'room.dining','Bedroom':'room.bedroom','Home Office':'room.office','Entryway & Hallway':'room.entryway','玄关入户':'room.entryway','Other':'room.other'};
+ const roomKeys={'Living Room':'room.living','Dining Room':'room.dining','Bedroom':'room.bedroom','Home Office':'room.office','Entryway & Hallway':'room.entryway','玄关入户':'room.entryway','Others':'room.others','Other':'room.other'};
  const styleKeys={'British Manor 英伦庄园':'style.traditional','British Manor':'style.traditional','French Chateau 法式城堡':'style.modern','French Chateau':'style.modern','French Château':'style.modern','Italian Renaissance':'style.farmhouse','American Legacy':'style.rustic'};
  const typeAliases={'Armchairs':['Accent Chairs'],'TV Stands':['TV Stands & Media Consoles'],'Side Tables':['Side / End Tables'],'Bookcases':['Bookcases & Cabinets'],'Beds':['Bed Frames'],'Dressers':['Dressers & Chests'],'Wardrobes':['Armoires / Wardrobes'],'Display Cabinets':['Bookcases & Cabinets','Cabinets'],'Office Desks':['Desks'],'Filing Cabinets':['Cabinets'],'Credenzas':['Cabinets'],'Shoe Cabinets':['Entryway Cabinets'],'Dressing Tables':['Vanity Table'],'Bar Stools':['Bar / Counter Stools']};
  const typeMatches=(productType,requestedType)=>!requestedType||productType===requestedType||(typeAliases[requestedType]||[]).includes(productType);
@@ -22,7 +22,7 @@
  const fallbackName=p=>productNameMap.en[p.nameZh]||p.category||p.name||p.sku;
  const displayName=(p,currentLang=lang())=>currentLang==='zh'?(p.nameZh||p.name||p.sku):(productNameMap[currentLang]?.[p.nameZh]||fallbackName(p));
  const normalizedStyle=value=>String(value||'').replace(/[\u4e00-\u9fff].*$/,'').trim();
- const normalizedRoom=value=>value==='玄关入户'?'Entryway & Hallway':value;
+ const normalizedRoom=value=>value==='玄关入户'?'Entryway & Hallway':value==='Other'?'Others':value;
  const cleanStyle=(style,currentLang=lang())=>{const value=String(style||'').trim();if(!value)return '';if(styleKeys[value])return t(styleKeys[value],currentLang);if(currentLang==='zh'){const chinese=value.replace(/^[A-Za-z-]+(?:\s+[A-Za-z-]+)*\s*/,'').trim();return chinese||value}return value.replace(/[\u4e00-\u9fff].*$/,'').trim()};
  const dimensionCopy={
   en:{length:'L ',custom:'Custom dimensions',proportional:'Proportional size',diameter:'dia. '},
