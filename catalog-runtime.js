@@ -1,6 +1,6 @@
 (function(){
  const localProducts=Array.isArray(window.WAO_LOCAL_PRODUCTS)?window.WAO_LOCAL_PRODUCTS.filter(p=>p.status!=='draft'):[];
- const money=(value,product)=>value==null?t('price.inquiry'):`${product?.collection==='Puffpop sofa'?'$':'¥'}${Number(value).toLocaleString('zh-CN')}`;
+ const money=(value,product)=>product?.hidePrice||value==null?t('price.inquiry'):`${product?.collection==='Puffpop sofa'?'$':'¥'}${Number(value).toLocaleString('zh-CN')}`;
  const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const lang=()=>document.documentElement.lang||'en';
  const productNameMap={
@@ -19,7 +19,7 @@
  const typeMatches=(productType,requestedType)=>!requestedType||productType===requestedType||(typeAliases[requestedType]||[]).includes(productType);
  const t=(key,currentLang=lang())=>(typeof I18N==='object'&&I18N[currentLang]?.[key])||(typeof I18N==='object'&&I18N.en?.[key])||key;
  const localName=(value,map,currentLang=lang())=>map[value]?t(map[value],currentLang):value;
- const fallbackName=p=>productNameMap.en[p.nameZh]||p.category||p.name||p.sku;
+ const fallbackName=p=>productNameMap.en[p.nameZh]||(p.name&&p.name!==p.sku?p.name:'')||p.category||p.name||p.sku;
  const displayName=(p,currentLang=lang())=>currentLang==='zh'?(p.nameZh||p.name||p.sku):(productNameMap[currentLang]?.[p.nameZh]||fallbackName(p));
  const normalizedStyle=value=>String(value||'').replace(/[\u4e00-\u9fff].*$/,'').trim();
  const normalizedRoom=value=>value==='玄关入户'?'Entryway & Hallway':value==='Other'?'Others':value;
@@ -55,7 +55,7 @@
  };
  const localized=(p,key,currentLang=lang())=>{
   if(currentLang==='zh')return p[key]||'';
-  if(key==='description')return t('product.description.generic',currentLang);
+  if(key==='description')return p.descriptionEn||p.description||t('product.description.generic',currentLang);
   if(key==='material')return t('product.material.generic',currentLang);
   if(key==='finish')return t('product.finish.generic',currentLang);
   return p[key]||'';
