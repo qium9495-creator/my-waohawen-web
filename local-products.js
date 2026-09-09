@@ -3672,7 +3672,10 @@ window.WAO_LOCAL_PRODUCTS = [
     "dimensions": "731*692*725",
     "finish": "如样",
     "images": [
-      "images/art/SS1030/1.jpg"
+      "images/art/SS1030/1.jpg",
+      "images/art/SS1030/2.jpg",
+      "images/art/SS1030/3.jpg",
+      "images/art/SS1030/4.jpg"
     ],
     "status": "published",
     "sort_order": 149
@@ -4384,7 +4387,7 @@ window.WAO_LOCAL_PRODUCTS = [
     "nameZh": "沙发背几",
     "collection": "Art Collection",
     "room": "Living Room",
-    "category": "Sofas",
+    "category": "Console Tables",
     "style": "French Chateau 法式城堡",
     "price": 3795,
     "description": "材质：进口榉木+尼斯木皮；颜色：香槟银",
@@ -9484,7 +9487,7 @@ window.WAO_LOCAL_PRODUCTS = [
     "nameZh": "沙发桌",
     "collection": "Art Collection",
     "room": "Living Room",
-    "category": "Sofas",
+    "category": "Console Tables",
     "style": "French Chateau 法式城堡",
     "price": 5225,
     "description": "材质：进口红橡木+实木多层板+红橡木皮单板+实木指接板(抽屉)；颜色：深咖色",
@@ -10192,7 +10195,7 @@ window.WAO_LOCAL_PRODUCTS = [
     "dimensions": "1040*970*940",
     "finish": "如样",
     "images": [
-      "images/art/SS003-S/1.png"
+      "images/art/SS003-L/1.png"
     ],
     "status": "published",
     "sort_order": 475
@@ -10231,8 +10234,10 @@ window.WAO_LOCAL_PRODUCTS = [
     "material": "",
     "dimensions": "2180*970*940",
     "finish": "如样",
-    "images": [],
-    "status": "draft",
+    "images": [
+      "images/art/SS003-L/1.png"
+    ],
+    "status": "published",
     "sort_order": 477
   },
   {
@@ -10249,8 +10254,10 @@ window.WAO_LOCAL_PRODUCTS = [
     "material": "俄罗斯桦木+实木多层板+高回弹海绵+接触面头层真皮+可拆装（扶手）",
     "dimensions": "1156*990*940",
     "finish": "",
-    "images": [],
-    "status": "draft",
+    "images": [
+      "images/art/SED1502-1/1.jpg"
+    ],
+    "status": "published",
     "sort_order": 478
   },
   {
@@ -10267,8 +10274,10 @@ window.WAO_LOCAL_PRODUCTS = [
     "material": "",
     "dimensions": "1816*990*940",
     "finish": "",
-    "images": [],
-    "status": "draft",
+    "images": [
+      "images/art/SED1502-2/1.jpg"
+    ],
+    "status": "published",
     "sort_order": 479
   },
   {
@@ -10286,7 +10295,7 @@ window.WAO_LOCAL_PRODUCTS = [
     "dimensions": "2477*990*940",
     "finish": "",
     "images": [
-      "images/art/SED1502-3/1.png"
+      "images/art/SED1502-3/1.jpg"
     ],
     "status": "published",
     "sort_order": 480
@@ -10345,8 +10354,10 @@ window.WAO_LOCAL_PRODUCTS = [
     "material": "进口桦木+接触面都是真皮+进口提花布（含腰枕1个）",
     "dimensions": "675*815*1230",
     "finish": "如样",
-    "images": [],
-    "status": "draft",
+    "images": [
+      "images/art/AR1554/1.jpg"
+    ],
+    "status": "published",
     "sort_order": 483
   },
   {
